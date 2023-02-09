@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { Diff } from 'diffy'
+import { Diff } from 'modiffy'
 import './index.scss'
 
 const debugMode = 'diff';

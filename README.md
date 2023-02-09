@@ -10,7 +10,7 @@ https://betterprogramming.pub/how-to-create-and-publish-react-typescript-npm-pac
 - cd ../../.. && npm link react
 - Do modifications on lib
 - npm run link
-- cd example && npm link diffy
+- cd example && npm link modiffy
 - npm start
 
 

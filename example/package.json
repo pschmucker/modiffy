@@ -17,6 +17,6 @@
         "react-dom": "^18.2.0"
     },
     "dependencies": {
-        "diffy": "^1.0.0"
+        "modiffy": "^1.0.0"
     }
 }
