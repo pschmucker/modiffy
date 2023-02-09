@@ -1,9 +1,9 @@
-# Bootstrapped following this tutorial:
+# Modiffy
 
-https://betterprogramming.pub/how-to-create-and-publish-react-typescript-npm-package-with-demo-and-automated-build-80c40ec28aca
+Meaningful objects diff
 
 
-# Local development
+## Local development
 - npm install
 - cd example && npm install
 - cd node_modules/react && npm link
@@ -14,7 +14,7 @@ https://betterprogramming.pub/how-to-create-and-publish-react-typescript-npm-pac
 - npm start
 
 
-# Upcoming features:
+## Upcoming features
 - Custom formatters
 - Ignore properties
 - Object preview
@@ -24,3 +24,9 @@ https://betterprogramming.pub/how-to-create-and-publish-react-typescript-npm-pac
 - Empty values
 - Date formatting
 - Agnostic Web component
+
+
+## Credits
+
+Built by following this article:
+https://betterprogramming.pub/how-to-create-and-publish-react-typescript-npm-package-with-demo-and-automated-build-80c40ec28aca
