@@ -1,16 +1,20 @@
 {
-  "name": "diffy",
+  "name": "modiffy",
   "version": "1.0.0",
-  "description": "Provides a React component to easily view all differences between 2 objects",
+  "description": "Provides a React component to easily view all meaningful differences between 2 objects",
   "source": "src/index.tsx",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pschmucker/modiffy.git"
+  },
   "scripts": {
     "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "tsc --build tsconfig.esm.json",
     "build:cjs": "tsc --build tsconfig.cjs.json",
-    "link": "rm -rf ./dist && npm rm diffy -g && parcel build && npm link",
+    "link": "rm -rf ./dist && npm rm modiffy -g && parcel build && npm link",
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
@@ -31,7 +35,8 @@
     "diff",
     "objects",
     "visual",
-    "user-friendly"
+    "user-friendly",
+    "meaningful"
   ],
   "author": "Philippe Schmucker",
   "license": "MIT",
@@ -50,6 +55,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^29.4.1",
     "jest-canvas-mock": "^2.4.0",
     "jest-environment-jsdom": "^29.4.1",

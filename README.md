@@ -1,22 +1,35 @@
-# Diffy
+# Modiffy
 
-## Bootstrapped following this tutorial:
+[![NPM version][npm-image]][npm-url]
+[![Build][github-build]][github-build-url]
+![npm-typescript]
+[![License][github-license]][github-license-url]
 
-https://betterprogramming.pub/how-to-create-and-publish-react-typescript-npm-package-with-demo-and-automated-build-80c40ec28aca
+**Meaningful objects diff**
 
+Provides a React component to easily view all meaningful differences between 2 objects.
 
-## Local development
-- npm install
-- cd example && npm install
-- cd node_modules/react && npm link
-- cd ../../.. && npm link react
-- Do modifications on lib
-- npm run link
-- cd example && npm link diffy
-- npm start
+[**Demo**](https://pschmucker.github.io/modiffy/)
 
 
-## Upcoming features:
+## Installation
+
+```bash
+npm install modiffy
+```
+
+
+## Usage
+
+```js
+<Diff oldValue={{ name: 'diff' }} newValue={{ name: 'modiffy' }} expanded={true} />
+```
+
+See [example project](https://github.com/pschmucker/modiffy/tree/main/example)
+
+
+## Upcoming features
+
 - [ ] Custom formatters
 - [ ] Ignore properties
 - [ ] Object preview
@@ -26,3 +39,31 @@ https://betterprogramming.pub/how-to-create-and-publish-react-typescript-npm-pac
 - [ ] Empty values
 - [ ] Date formatting
 - [ ] Agnostic Web component
+
+
+## Local development
+
+- npm install
+- cd example && npm install
+- cd node_modules/react && npm link
+- cd ../../.. && npm link react
+- Do modifications on library
+- npm run link
+- cd example && npm link modiffy
+- npm start
+
+
+## Credits
+
+Built by following this article:
+https://betterprogramming.pub/how-to-create-and-publish-react-typescript-npm-package-with-demo-and-automated-build-80c40ec28aca
+
+
+
+[npm-url]: https://www.npmjs.com/package/modiffy
+[npm-image]: https://img.shields.io/npm/v/modiffy
+[github-license]: https://img.shields.io/github/license/pschmucker/modiffy
+[github-license-url]: https://github.com/pschmucker/modiffy/blob/master/LICENSE
+[github-build]: https://github.com/pschmucker/modiffy/actions/workflows/publish.yml/badge.svg
+[github-build-url]: https://github.com/pschmucker/modiffy/actions/workflows/publish.yml
+[npm-typescript]: https://img.shields.io/npm/types/modiffy
