@@ -3,6 +3,20 @@
 Meaningful objects diff
 
 
+## Installation
+```
+npm install modiffy
+```
+
+
+## Usage
+```
+<Diff oldValue={{ name: 'diff' }} newValue={{ name: 'modiffy' }} expanded={true} />
+
+See [example project](https://github.com/pschmucker/modiffy/tree/main/example)
+```
+
+
 ## Local development
 - npm install
 - cd example && npm install
