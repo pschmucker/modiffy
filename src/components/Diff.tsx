@@ -76,8 +76,6 @@ export const Diff: FC<DiffProps> = ({ oldValue, newValue, expanded = true, debug
 
     const jsonDiff = diff(oldValue, newValue);
 
-    console.log({ oldValue, newValue, jsonDiff });
-
     return (
         <div className="diff">
             <ul>{ displayDiffNode('root', jsonDiff, 0) }</ul>
