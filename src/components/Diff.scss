@@ -55,16 +55,16 @@
     }
 
     > .value {
-        &.old {
+        &.old > .content {
             text-decoration: line-through;
         }
 
-        &.new {
+        &.new > .content {
             color: blue;
             font-weight: 500;
         }
 
-        &.list {
+        > .list {
             &::before {
                 content: '[ ';
             }

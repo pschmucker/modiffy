@@ -1,9 +1,11 @@
-# Bootstrapped following this tutorial:
+# Diffy
+
+## Bootstrapped following this tutorial:
 
 https://betterprogramming.pub/how-to-create-and-publish-react-typescript-npm-package-with-demo-and-automated-build-80c40ec28aca
 
 
-# Local development
+## Local development
 - npm install
 - cd example && npm install
 - cd node_modules/react && npm link
@@ -14,13 +16,13 @@ https://betterprogramming.pub/how-to-create-and-publish-react-typescript-npm-pac
 - npm start
 
 
-# Upcoming features:
-- Custom formatters
-- Ignore properties
-- Object preview
-- i18n
-- Expand / collapse all
-- Customizable theme
-- Empty values
-- Date formatting
-- Agnostic Web component
+## Upcoming features:
+- [ ] Custom formatters
+- [ ] Ignore properties
+- [ ] Object preview
+- [ ] i18n
+- [ ] Expand / collapse all
+- [ ] Customizable theme
+- [ ] Empty values
+- [ ] Date formatting
+- [ ] Agnostic Web component
