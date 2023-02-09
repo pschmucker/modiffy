@@ -16,7 +16,7 @@ type DiffProps = {
     debug?: 'disabled' | 'diff' | 'full'
 }
 
-export const Diff: FC<DiffProps> = ({ oldValue, newValue, expanded = false, debug = 'disabled' }) => {
+export const Diff: FC<DiffProps> = ({ oldValue, newValue, expanded = true, debug = 'disabled' }) => {
 
     const displayDiffNode = (propertyName: string, diffNode: any, index: number): JSX.Element => {
 
