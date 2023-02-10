@@ -7,7 +7,6 @@ import { ObjectNode } from "./ObjectNode"
 import { RemovedNode } from "./RemovedNode"
 import { UnchangedNode } from "./UnchangedNode"
 import { UpdatedNode } from "./UpdatedNode"
-import './Diff.scss'
 
 type DiffProps = {
     oldValue: any,
