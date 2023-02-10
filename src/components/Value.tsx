@@ -1,5 +1,6 @@
 import { FC } from "react"
 import { ArrayFormatter, BooleanFormatter, DateFormatter, DefaultFormatter, EmptyFormatter, Formatter, ObjectFormatter } from "./formatter"
+import { registry } from "./formatter/FormatterRegistry"
 
 type ValueProps = {
     value: any,
@@ -9,6 +10,7 @@ type ValueProps = {
 export const Value: FC<ValueProps> = ({ value, className = '' }) => {
     
     const formatters: Formatter[] = [
+        ...registry.getFormatters(),
         new EmptyFormatter(),
         new BooleanFormatter(),
         new ArrayFormatter(),
