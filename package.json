@@ -11,10 +11,10 @@
     "url": "https://github.com/pschmucker/modiffy.git"
   },
   "scripts": {
-    "build": "npm run build:esm && npm run build:cjs",
+    "build": "parcel build",
     "build:esm": "tsc --build tsconfig.esm.json",
     "build:cjs": "tsc --build tsconfig.cjs.json",
-    "link": "rm -rf ./dist && npm rm modiffy -g && parcel build && npm link",
+    "link": "rm -rf ./dist && npm rm modiffy -g && npm run build && npm link",
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
