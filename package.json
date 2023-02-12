@@ -1,6 +1,6 @@
 {
   "name": "modiffy",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Provides a React component to easily view all meaningful differences between 2 objects",
   "source": "src/index.tsx",
   "main": "./dist/cjs/index.js",
@@ -11,10 +11,10 @@
     "url": "https://github.com/pschmucker/modiffy.git"
   },
   "scripts": {
-    "build": "npm run build:esm && npm run build:cjs",
+    "build": "parcel build",
     "build:esm": "tsc --build tsconfig.esm.json",
     "build:cjs": "tsc --build tsconfig.cjs.json",
-    "link": "rm -rf ./dist && npm rm modiffy -g && parcel build && npm link",
+    "link": "rm -rf ./dist && npm rm modiffy -g && npm run build && npm link",
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
