@@ -1,6 +1,6 @@
 {
     "name": "modiffy-examples",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "private": true,
     "scripts": {
         "start": "parcel serve --no-cache src/index.html",
@@ -18,6 +18,6 @@
         "react-dom": "^18.2.0"
     },
     "dependencies": {
-        "modiffy": "^1.0.2"
+        "modiffy": "^1.0.3"
     }
 }
