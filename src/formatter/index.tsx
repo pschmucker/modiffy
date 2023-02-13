@@ -4,6 +4,7 @@ import { DateFormatter } from './DateFormatter'
 import { DefaultFormatter } from './DefaultFormatter'
 import { EmptyFormatter } from './EmptyFormatter'
 import { Formatter } from './Formatter'
+import { formatterRegistry } from './FormatterRegistry'
 import { ObjectFormatter } from './ObjectFormatter'
 
 export {
@@ -13,5 +14,7 @@ export {
     DefaultFormatter,
     EmptyFormatter,
     Formatter,
-    ObjectFormatter
+    ObjectFormatter,
+    formatterRegistry
 }
+

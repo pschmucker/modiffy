@@ -1,6 +1,6 @@
 import { Diff } from './components/Diff'
-import type { Formatter } from './components/formatter'
-import { useFormatter } from './components/formatter/FormatterRegistry'
+import { configuration } from './config/Configuration'
+import type { Formatter } from './formatter'
 import './index.css'
 
-export { Diff, Formatter, useFormatter }
+export { Diff, Formatter, configuration }

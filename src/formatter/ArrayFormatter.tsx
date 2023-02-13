@@ -1,4 +1,4 @@
-import { Value } from "../Value";
+import { Value } from "../components/Value";
 import { Formatter } from "./Formatter";
 
 export class ArrayFormatter implements Formatter {

@@ -28,12 +28,12 @@ npm install modiffy
 See [example project](https://github.com/pschmucker/modiffy/tree/main/example)
 
 
-## Upcoming features
+## Supported features
 
-- [ ] Custom formatters
+- [x] Custom formatters
 - [ ] Ignore properties
-- [ ] Object preview
 - [ ] i18n
+- [ ] Object preview
 - [ ] Expand / collapse all
 - [ ] Customizable theme
 - [ ] Empty values

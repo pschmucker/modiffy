@@ -14,8 +14,4 @@ class FormatterRegistry {
     }
 }
 
-export const registry = new FormatterRegistry();
-
-export const useFormatter = (formatter: Formatter) => {
-    registry.register(formatter);
-}
+export const formatterRegistry = new FormatterRegistry();

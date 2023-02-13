@@ -1,17 +1,12 @@
-import { Diff, useFormatter } from 'modiffy'
+import { Diff } from 'modiffy'
 import React, { FC } from 'react'
 import './index.scss'
-import { PersonFormatter } from './PersonFormatter'
-import { ReviewFormatter } from './ReviewFormatter'
 
 
 type AppProps = {}
 
 export const App: FC<AppProps> = () => {
     const debugMode = 'diff';
-
-    useFormatter(new PersonFormatter());
-    useFormatter(new ReviewFormatter());
 
     return (<>
         <div>
