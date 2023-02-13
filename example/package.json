@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "start": "parcel serve --no-cache src/index.html",
-        "build": "parcel build src/index.html --dist-dir ../docs --public-url ."
+        "build": "rm -rf ../docs && parcel build src/index.html --dist-dir ../docs --public-url ."
     },
     "devDependencies": {
         "@types/react": "^18.0.27",
