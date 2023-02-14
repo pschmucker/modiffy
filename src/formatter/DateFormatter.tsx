@@ -1,3 +1,4 @@
+import * as styles from "../components/Diff.module.scss";
 import { Formatter } from "./Formatter";
 
 export class DateFormatter implements Formatter {
@@ -7,6 +8,6 @@ export class DateFormatter implements Formatter {
     }
     
     format(value: any): JSX.Element {
-        return <span className="content">{ new Date(value).toLocaleString() }</span>;
+        return <span className={styles.content}>{ new Date(value).toLocaleString() }</span>;
     }
 }

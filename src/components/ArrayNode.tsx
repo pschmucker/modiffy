@@ -1,4 +1,5 @@
-import { FC, MouseEvent, useState } from "react"
+import { FC, MouseEvent, useState } from "react";
+import * as styles from "./Diff.module.scss";
 import { Property } from "./Property";
 
 type ArrayNodeProps = {
@@ -16,8 +17,8 @@ export const ArrayNode: FC<ArrayNodeProps> = ({ property, children, expanded = f
     }
 
     return (
-        <li className={`array node ${collapsed ? 'collapsed' : ''}`}>
-            <div className="toggle-handler" onClick={ toggleCollapsedState } />
+        <li className={`${styles.array} ${styles.node} ${collapsed ? styles.collapsed : ''}`}>
+            <div className={`${styles['toggle-handler']}`} onClick={ toggleCollapsedState } />
             <Property name={ property } />
             <ul>{ children }</ul>
         </li>

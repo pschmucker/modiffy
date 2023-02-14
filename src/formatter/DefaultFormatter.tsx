@@ -1,3 +1,4 @@
+import * as styles from "../components/Diff.module.scss";
 import { Formatter } from "./Formatter";
 
 export class DefaultFormatter implements Formatter {
@@ -7,6 +8,6 @@ export class DefaultFormatter implements Formatter {
     }
     
     format(value: any): JSX.Element {
-        return <span className="content">{ JSON.stringify(value) }</span>;
+        return <span className={styles.content}>{ JSON.stringify(value) }</span>;
     }
 }

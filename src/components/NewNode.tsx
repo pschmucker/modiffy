@@ -1,4 +1,5 @@
-import { FC } from "react"
+import { FC } from "react";
+import * as styles from "./Diff.module.scss";
 import { Value } from "./Value";
 
 type NewNodeProps = {
@@ -7,8 +8,8 @@ type NewNodeProps = {
 
 export const NewNode: FC<NewNodeProps> = ({ value }) => {
     return (
-        <li className="leaf node">
-            <span className="type" style={{ backgroundColor: 'blue' }}>new</span>
+        <li className={`${styles.new} ${styles.leaf} ${styles.node}`}>
+            <span className={styles.type}>new</span>
             <Value value={value} />
         </li>
     );

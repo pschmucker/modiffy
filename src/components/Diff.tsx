@@ -2,6 +2,7 @@ import { diff } from "json-diff"
 import { FC } from "react"
 import { AddedNode } from "./AddedNode"
 import { ArrayNode } from "./ArrayNode"
+import * as styles from "./Diff.module.scss"
 import { NewNode } from "./NewNode"
 import { ObjectNode } from "./ObjectNode"
 import { RemovedNode } from "./RemovedNode"
@@ -76,7 +77,7 @@ export const Diff: FC<DiffProps> = ({ oldValue, newValue, expanded = true, debug
     const jsonDiff = diff(oldValue, newValue);
 
     return (
-        <div className="diff">
+        <div className={styles.diff}>
             <ul>{ displayDiffNode('root', jsonDiff, 0) }</ul>
 
             { debug === 'full' && <pre>{ JSON.stringify(oldValue, undefined, 2) }</pre> }

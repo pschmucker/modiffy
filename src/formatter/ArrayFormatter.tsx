@@ -1,4 +1,5 @@
 import { Value } from "../components/Value";
+import * as styles from "../components/Diff.module.scss";
 import { Formatter } from "./Formatter";
 
 export class ArrayFormatter implements Formatter {
@@ -8,7 +9,7 @@ export class ArrayFormatter implements Formatter {
     }
     
     format(value: any): JSX.Element {
-        return <span className="list value">{
+        return <span className={`${styles.list} ${styles.value}`}>{
             (value as any[]).map((item, index) => <Value key={index} value={item} />)
         }</span>;
     }

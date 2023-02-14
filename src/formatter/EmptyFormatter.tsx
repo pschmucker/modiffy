@@ -1,3 +1,4 @@
+import * as styles from "../components/Diff.module.scss";
 import { Formatter } from "./Formatter";
 
 export class EmptyFormatter implements Formatter {
@@ -7,6 +8,6 @@ export class EmptyFormatter implements Formatter {
     }
     
     format(): JSX.Element {
-        return <span className="empty placeholder" />;
+        return <span className={`${styles.empty} ${styles.placeholder}`} />;
     }
 }

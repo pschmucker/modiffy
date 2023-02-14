@@ -1,3 +1,4 @@
+import * as styles from "../components/Diff.module.scss";
 import { Formatter } from "./Formatter";
 
 export class BooleanFormatter implements Formatter {
@@ -7,6 +8,6 @@ export class BooleanFormatter implements Formatter {
     }
     
     format(value: any): JSX.Element {
-        return <span className="content">{ value ? 'Yes' : 'No' }</span>;
+        return <span className={styles.content}>{ value ? 'Yes' : 'No' }</span>;
     }
 }

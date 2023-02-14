@@ -1,5 +1,6 @@
 import { FC } from "react"
 import { ArrayFormatter, BooleanFormatter, DateFormatter, DefaultFormatter, EmptyFormatter, Formatter, formatterRegistry, ObjectFormatter } from "../formatter"
+import * as styles from "./Diff.module.scss"
 
 type ValueProps = {
     value: any,
@@ -18,7 +19,7 @@ export const Value: FC<ValueProps> = ({ value, className = '' }) => {
         new DefaultFormatter()
     ];
     
-    return <span className={`value ${className}`}>{
+    return <span className={`${styles.value} ${className}`}>{
         formatters.find(formatter => formatter.matches(value))?.format(value) || <span className="no-matching-formatter"></span>
     }</span>;
 }

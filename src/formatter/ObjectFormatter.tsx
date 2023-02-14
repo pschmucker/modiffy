@@ -1,4 +1,5 @@
 import { Formatter } from "./Formatter";
+import * as styles from "../components/Diff.module.scss";
 
 export class ObjectFormatter implements Formatter {
 
@@ -11,15 +12,15 @@ export class ObjectFormatter implements Formatter {
         const preview = displayableProperty ? `${displayableProperty}`.substring(0, 80) : displayableProperty;
     
         if (!displayableProperty) {
-            return <span title={JSON.stringify(value, undefined, 2)} className="object placeholder" />;
+            return <span title={JSON.stringify(value, undefined, 2)} className={`${styles.object} ${styles.placeholder}`} />;
         }
     
-        return <span className="content">
+        return <span className={styles.content}>
             { JSON.stringify(preview) }
     
             { displayableProperty.length > 80 && <>
                 <span>...&nbsp;</span>
-                <span className="truncated placeholder" />
+                <span className={`${styles.truncated} ${styles.placeholder}`} />
             </>}
         </span>;
     }

@@ -42,6 +42,26 @@
         border-radius: 3px;
     }
 
+    &.removed > .type {
+        background-color: red;
+    }
+
+    &.added > .type {
+        background-color: green;
+    }
+
+    &.new > .type {
+        background-color: blue;
+    }
+
+    &.unchanged > .type {
+        background-color: grey;
+    }
+
+    &.updated > .type {
+        background-color: darkorange;
+    }
+
     > .property {
         font-style: italic;
         color: grey;
