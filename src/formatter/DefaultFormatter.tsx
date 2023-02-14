@@ -2,7 +2,7 @@ import { Formatter } from "./Formatter";
 
 export class DefaultFormatter implements Formatter {
 
-    matches(_value: any): boolean {
+    matches(): boolean {
         return true;
     }
     

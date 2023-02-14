@@ -7,7 +7,7 @@ class FormatterRegistry {
 
     register(formatter: Formatter) {
         this.formatters.push(formatter);
-    };
+    }
 
     getFormatters() {
         return this.formatters;

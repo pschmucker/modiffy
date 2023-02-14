@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 import './index.scss'
 
 
-type AppProps = {}
+type AppProps = Record<string, never>;
 
 export const App: FC<AppProps> = () => {
     const debugMode = 'diff';

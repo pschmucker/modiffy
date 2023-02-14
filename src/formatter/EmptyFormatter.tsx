@@ -6,7 +6,7 @@ export class EmptyFormatter implements Formatter {
         return value === undefined || value === null;
     }
     
-    format(_value: any): JSX.Element {
+    format(): JSX.Element {
         return <span className="empty placeholder" />;
     }
 }
