@@ -9,7 +9,7 @@
 
 Provides a React component to easily view all meaningful differences between 2 objects.
 
-[**Demo**](https://pschmucker.github.io/modiffy/)
+[**Live demo**](https://pschmucker.github.io/modiffy/)
 
 
 ## Installation
@@ -25,7 +25,42 @@ npm install modiffy
 <Diff oldValue={{ name: 'diff' }} newValue={{ name: 'modiffy' }} expanded={true} />
 ```
 
-See [example project](https://github.com/pschmucker/modiffy/tree/main/example)
+
+## Configuration
+
+### Formatters
+
+When a changed node is not a simple value (like a number, string or boolean), the library displays an "object" badge.
+You can display something more meaningful by implementing your own formatter:
+
+```js
+import { Formatter } from 'modiffy'
+
+export class PersonFormatter implements Formatter {
+
+    matches(value: any): boolean {
+        return Object.hasOwn(value || {}, 'firstName');
+    }
+    
+    format(value: any): JSX.Element {
+        return value.firstName;
+    }
+}
+```
+
+```js
+import { configuration } from 'modiffy';
+import { PersonFormatter } from "./PersonFormatter";
+
+configuration.addFormatter(new PersonFormatter());
+```
+
+```js
+<Diff expanded={true}
+    oldValue={ [] }
+    newValue={ [{ firstName: 'Phil', age: 35 }] }
+/>
+```
 
 
 ## Supported features
