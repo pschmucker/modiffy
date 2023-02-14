@@ -39,7 +39,7 @@ import { Formatter } from 'modiffy'
 export class PersonFormatter implements Formatter {
 
     matches(value: any): boolean {
-        return Object.hasOwn(value || {}, 'firstName');
+        return Object.hasOwn(value ?? {}, 'firstName');
     }
     
     format(value: any): JSX.Element {

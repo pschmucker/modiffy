@@ -4,7 +4,7 @@ import React from 'react';
 export class ReviewFormatter implements Formatter {
 
     matches(value: any): boolean {
-        return 'title' in value && 'content' in value;
+        return Object.hasOwn(value ?? {}, 'title') && Object.hasOwn(value ?? {}, 'content');
     }
     
     format(value: any): JSX.Element {
