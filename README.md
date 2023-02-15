@@ -11,6 +11,7 @@ Provides a React component to easily view all meaningful differences between 2 o
 
 [**Live demo**](https://pschmucker.github.io/modiffy/)
 
+<br>
 
 ## Installation
 
@@ -18,6 +19,7 @@ Provides a React component to easily view all meaningful differences between 2 o
 npm install modiffy
 ```
 
+<br>
 
 ## Usage
 
@@ -25,6 +27,7 @@ npm install modiffy
 <Diff oldValue={{ name: 'diff' }} newValue={{ name: 'modiffy' }} expanded={true} />
 ```
 
+<br>
 
 ## Configuration
 
@@ -62,11 +65,29 @@ configuration.addFormatter(new PersonFormatter());
 />
 ```
 
+<br>
+
+### Ignored properties
+
+Some properties may be irrelevant like technical identifiers for endusers. 
+You can ignore such properties with the **ignoredProperties** option:
+
+```js
+import { configuration } from 'modiffy';
+
+configuration.applyOptions({
+    ignoredProperties: [
+        'id'
+    ]
+});
+```
+
+<br>
 
 ## Supported features
 
 - [x] Custom formatters
-- [ ] Ignore properties
+- [x] Ignored properties
 - [ ] i18n
 - [ ] Object preview
 - [ ] Expand / collapse all
@@ -75,18 +96,21 @@ configuration.addFormatter(new PersonFormatter());
 - [ ] Date formatting
 - [ ] Agnostic Web component
 
+<br>
 
 ## Local development
 
-- npm install
-- cd example && npm install
-- cd node_modules/react && npm link
-- cd ../../.. && npm link react
-- Do modifications on library
-- npm run link
-- cd example && npm link modiffy
-- npm start
+```bash
+npm install
+cd example && npm install
+cd node_modules/react && npm link
+cd ../../.. && npm link react
+npm run link
+cd example && npm link modiffy
+npm start
+```
 
+<br>
 
 ## Credits
 

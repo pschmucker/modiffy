@@ -1,5 +1,6 @@
 import { diff } from "json-diff"
 import { FC } from "react"
+import { configOptions } from "../config/Options"
 import { AddedNode } from "./AddedNode"
 import { ArrayNode } from "./ArrayNode"
 import { NewNode } from "./NewNode"
@@ -31,7 +32,7 @@ export const Diff: FC<DiffProps> = ({ oldValue, newValue, expanded = true, debug
             return <RemovedNode key={index} property={propertyName.replace(/__deleted$/, '')} value={diffNode} />;
         }
 
-        const properties = Object.entries(diffNode).filter(([key]) => key !== 'id');
+        const properties = Object.entries(diffNode).filter(([key]) => !configOptions.ignoredProperties.includes(key.replace(/__(?:added|deleted)$/, '')));
 
         if (properties.length === 2 && properties.some(([key]) => key === '__old') && properties.some(([key]) => key === '__new')) {
             return (propertyName === 'root' && diffNode.__old === null)

@@ -17,7 +17,7 @@ export const ObjectNode: FC<ObjectNodeProps> = ({ property, children, expanded =
     }
 
     if (!children.length) {
-        <UnchangedNode property={property} propertyStyle="prefix" />
+        return <UnchangedNode property={property} propertyStyle="prefix" />
     }
 
     return (
