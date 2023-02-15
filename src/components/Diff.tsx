@@ -76,13 +76,13 @@ export const Diff: FC<DiffProps> = ({ oldValue, newValue, expanded = true, debug
 
     const jsonDiff = diff(oldValue, newValue);
 
-    return (
-        <div className={styles.diff}>
+    return (<>
+        <div className={`modiffy ${styles.diff}`}>
             <ul>{ displayDiffNode('root', jsonDiff, 0) }</ul>
-
-            { debug === 'full' && <pre>{ JSON.stringify(oldValue, undefined, 2) }</pre> }
-            { debug === 'full' && <pre>{ JSON.stringify(newValue, undefined, 2) }</pre> }
-            { debug !== 'disabled' && <pre>{ JSON.stringify(jsonDiff, undefined, 2) }</pre> }
         </div>
-    );
+
+        { debug === 'full' && <pre className="old">{ JSON.stringify(oldValue, undefined, 2) }</pre> }
+        { debug === 'full' && <pre className="new">{ JSON.stringify(newValue, undefined, 2) }</pre> }
+        { debug !== 'disabled' && <pre className="diff">{ JSON.stringify(jsonDiff, undefined, 2) }</pre> }
+    </>);
 }

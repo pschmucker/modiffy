@@ -1,149 +1,142 @@
-.diff > ul {
-    margin: 0;
-}
+.diff {
+    ul {
+        margin: 0;
+        padding-inline-start: 30px;
+    }
 
-.diff .node {
-    &.object,
-    &.array {
-        position: relative;
-        list-style-type: disclosure-open;
+    .node {
+        &.object,
+        &.array {
+            position: relative;
+            list-style-type: disclosure-open;
+            
+            &.collapsed {
+                list-style-type: disclosure-closed;
         
-        &.collapsed {
-            list-style-type: disclosure-closed;
-    
-            > ul {
-                display: none;
-            }
-    
-            > .property::after {
-                content: '';
+                > ul {
+                    display: none;
+                }
+        
+                > .property::after {
+                    content: '';
+                }
             }
         }
-    }
 
-    &.leaf {
-        display: flex;
-        align-items: flex-start;
-        margin-top: 0.25em;
-        margin-bottom: 0.5em;
-        margin-left: -2rem;
-    }
-
-    > span + span {
-        margin-left: 0.5em;
-    }
-
-    > .type {
-        text-transform: uppercase;
-        color: white;
-        font-size: 0.75em;
-        font-weight: 600;
-        padding: 2px 4px;
-        border-radius: 3px;
-    }
-
-    &.removed > .type {
-        background-color: red;
-    }
-
-    &.added > .type {
-        background-color: green;
-    }
-
-    &.new > .type {
-        background-color: blue;
-    }
-
-    &.unchanged > .type {
-        background-color: grey;
-    }
-
-    &.updated > .type {
-        background-color: darkorange;
-    }
-
-    > .property {
-        font-style: italic;
-        color: grey;
-
-        &::after {
-            content: ':';
+        &.leaf {
+            display: flex;
+            align-items: flex-start;
+            column-gap: 0.5em;
+            margin: 0.25em 0 0.5em -30px;
         }
 
-        &:last-child::after {
-            content: ':';
-        }
-    }
-
-    > .value {
-        &.old > .content {
-            text-decoration: line-through;
-        }
-
-        &.new > .content {
-            color: blue;
-            font-weight: 500;
+        > .type {
+            text-transform: uppercase;
+            color: white;
+            font-size: 0.75em;
+            font-weight: 600;
+            padding: 2px 4px;
+            border-radius: 3px;
         }
 
-        > .list {
-            &::before {
-                content: '[ ';
-            }
+        &.removed > .type {
+            background-color: red;
+        }
+
+        &.added > .type {
+            background-color: green;
+        }
+
+        &.new > .type {
+            background-color: blue;
+        }
+
+        &.unchanged > .type {
+            background-color: grey;
+        }
+
+        &.updated > .type {
+            background-color: darkorange;
+        }
+
+        > .property {
+            font-style: italic;
+            color: grey;
 
             &::after {
-                content: ' ]';
-            }
-
-            > span + span::before {
-                content: ', '
+                content: ':';
             }
         }
-    }
 
-    > .toggle-handler {
-        position: absolute;
-        display: block;
-        top: -0.25em;
-        left: -2rem;
-        right: 0;
-        height: 1.25em;
-        margin: 2px 0;
-        border-radius: 2px;
-        cursor: pointer;
-    }
-}
+        > .value {
+            &.old > .content {
+                text-decoration: line-through;
+            }
 
-.diff .placeholder {
-    color: white;
-    font-size: 0.7em;
-    font-weight: 600;
-    font-family: monospace;
-    text-transform: uppercase;
-    padding: 0 4px;
-    border-radius: 4px;
+            &.new > .content {
+                color: blue;
+            }
 
-    &.empty {
-        background-color: #ccc;
+            > .list {
+                &::before {
+                    content: '[ ';
+                }
 
-        &::after {
-            content: 'empty';
+                &::after {
+                    content: ' ]';
+                }
+
+                > span + span::before {
+                    content: ', '
+                }
+            }
         }
-    }
-    
-    &.truncated {
-        background-color: #ccc;
 
-        &::after {
-            content: 'truncated';
+        > .toggle-handler {
+            position: absolute;
+            display: block;
+            top: -0.125em;
+            left: -30px;
+            right: 0;
+            height: 1.125em;
+            margin: 2px 0;
+            border-radius: 2px;
+            cursor: pointer;
         }
-    }
-    
-    &.object {
-        background-color: #222;
-        cursor: help;
 
-        &::after {
-            content: 'object';
+        .placeholder {
+            color: white;
+            font-size: 0.7em;
+            font-weight: 600;
+            font-family: monospace;
+            text-transform: uppercase;
+            padding: 0 4px;
+            border-radius: 4px;
+        
+            &.empty {
+                background-color: #ccc;
+        
+                &::after {
+                    content: 'empty';
+                }
+            }
+            
+            &.truncated {
+                background-color: #ccc;
+        
+                &::after {
+                    content: 'truncated';
+                }
+            }
+            
+            &.object {
+                background-color: #222;
+                cursor: help;
+        
+                &::after {
+                    content: 'object';
+                }
+            }
         }
     }
 }
