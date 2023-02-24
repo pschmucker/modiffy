@@ -3,15 +3,59 @@ html {
     font-size: 16px;
 }
 
-.diff {
+body {
+    margin: 1em;
+}
+
+section {
     display: flex;
-    gap: 2em;
+    align-items: flex-start;
+    gap: 1em;
 
     > * {
         flex: 1;
+        order: 2;
     }
+}
 
-    > pre {
-        overflow: auto;
-    }
+pre {
+    overflow: auto;
+    order: 1;
+    margin-top: 0;
+}
+
+pre.diff {
+    display: none;
+}
+
+pre::before,
+.modiffy::before {
+    display: block;
+    background-color: lightskyblue;
+    padding: 0.25em 0.5em;
+    border-radius: 4px;
+    margin-bottom: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+
+.modiffy::before {
+    content: 'Output';
+}
+
+pre.old::before {
+    content: 'Old';
+}
+
+pre.new::before {
+    content: 'New';
+}
+
+pre.diff::before {
+    content: 'Diff';
+}
+
+hr {
+    visibility: hidden;
+    margin-bottom: 2em;
 }

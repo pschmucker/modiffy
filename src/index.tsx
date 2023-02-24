@@ -1,6 +1,6 @@
 import { Diff } from './components/Diff'
-import { useTranslations } from './Config'
-import './index.css'
+import { configuration } from './config/Configuration'
+import type { Formatter } from './formatter'
 
-export { Diff, useTranslations }
+export { Diff, Formatter, configuration }
 

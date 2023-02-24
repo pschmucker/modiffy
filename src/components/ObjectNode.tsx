@@ -1,4 +1,5 @@
 import { FC, MouseEvent, useState } from "react";
+import * as styles from "./Diff.module.scss";
 import { Property } from "./Property";
 import { UnchangedNode } from "./UnchangedNode";
 
@@ -17,12 +18,12 @@ export const ObjectNode: FC<ObjectNodeProps> = ({ property, children, expanded =
     }
 
     if (!children.length) {
-        <UnchangedNode property={property} propertyStyle="prefix" />
+        return <UnchangedNode property={property} propertyStyle="prefix" />
     }
 
     return (
-        <li className={`object node ${collapsed ? 'collapsed' : ''}`}>
-            <div className="toggle-handler" onClick={ toggleCollapsedState } />
+        <li className={`${styles.object} ${styles.node} ${collapsed ? styles.collapsed : ''}`}>
+            <div className={`${styles['toggle-handler']}`} onClick={ toggleCollapsedState } />
             <Property name={ property } />
             <ul>{ children }</ul>
         </li>

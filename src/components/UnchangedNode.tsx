@@ -1,4 +1,5 @@
 import { FC } from "react"
+import * as styles from "./Diff.module.scss"
 import { Property } from "./Property"
 
 type UnchangedNodeProps = {
@@ -11,9 +12,9 @@ export const UnchangedNode: FC<UnchangedNodeProps> = ({ property, propertyStyle 
     const propertySpan = <Property name={property} />;
 
     return (
-        <li className="leaf node">
+        <li className={`${styles.unchanged} ${styles.leaf} ${styles.node}`}>
             { propertyStyle === 'prefix' && propertySpan }
-            <span className="type" style={{ backgroundColor: 'grey' }}>unchanged</span>
+            <span className={styles.type}>unchanged</span>
             { propertyStyle === 'default' && propertySpan }
         </li>
     );

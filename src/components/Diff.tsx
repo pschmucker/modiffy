@@ -1,7 +1,9 @@
 import { diff } from "json-diff"
 import { FC } from "react"
+import { configOptions } from "../config/Options"
 import { AddedNode } from "./AddedNode"
 import { ArrayNode } from "./ArrayNode"
+import * as styles from "./Diff.module.scss"
 import { NewNode } from "./NewNode"
 import { ObjectNode } from "./ObjectNode"
 import { RemovedNode } from "./RemovedNode"
@@ -31,7 +33,7 @@ export const Diff: FC<DiffProps> = ({ oldValue, newValue, expanded = true, debug
             return <RemovedNode key={index} property={propertyName.replace(/__deleted$/, '')} value={diffNode} />;
         }
 
-        const properties = Object.entries(diffNode).filter(([key]) => key !== 'id');
+        const properties = Object.entries(diffNode).filter(([key]) => !configOptions.ignoredProperties.includes(key.replace(/__(?:added|deleted)$/, '')));
 
         if (properties.length === 2 && properties.some(([key]) => key === '__old') && properties.some(([key]) => key === '__new')) {
             return (propertyName === 'root' && diffNode.__old === null)
@@ -75,13 +77,13 @@ export const Diff: FC<DiffProps> = ({ oldValue, newValue, expanded = true, debug
 
     const jsonDiff = diff(oldValue, newValue);
 
-    return (
-        <div className="diff">
+    return (<>
+        <div className={`modiffy ${styles.diff}`}>
             <ul>{ displayDiffNode('root', jsonDiff, 0) }</ul>
-
-            { debug === 'full' && <pre>{ JSON.stringify(oldValue, undefined, 2) }</pre> }
-            { debug === 'full' && <pre>{ JSON.stringify(newValue, undefined, 2) }</pre> }
-            { debug !== 'disabled' && <pre>{ JSON.stringify(jsonDiff, undefined, 2) }</pre> }
         </div>
-    );
+
+        { debug === 'full' && <pre className="old">{ JSON.stringify(oldValue, undefined, 2) }</pre> }
+        { debug === 'full' && <pre className="new">{ JSON.stringify(newValue, undefined, 2) }</pre> }
+        { debug !== 'disabled' && <pre className="diff">{ JSON.stringify(jsonDiff, undefined, 2) }</pre> }
+    </>);
 }

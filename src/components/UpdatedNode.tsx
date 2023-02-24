@@ -1,4 +1,5 @@
-import { FC } from "react"
+import { FC } from "react";
+import * as styles from "./Diff.module.scss";
 import { Property } from "./Property";
 import { Value } from "./Value";
 
@@ -14,13 +15,13 @@ export const UpdatedNode: FC<UpdatedNodeProps> = ({ property, oldValue, newValue
     const propertySpan = <Property name={property} />;
 
     return (
-        <li className="updated leaf node">
+        <li className={`${styles.updated} ${styles.leaf} ${styles.node}`}>
             { propertyStyle === 'prefix' && propertySpan }
-            <span className="type" style={{ backgroundColor: 'darkorange' }}>updated</span>
+            <span className={styles.type}>updated</span>
             { propertyStyle === 'default' && propertySpan }
-            <Value value={oldValue} className="old" />
+            <Value value={oldValue} className={styles.old} />
             <span style={{ fontSize: '1.1em' }}>&rarr;</span>
-            <Value value={newValue} className="new" />
+            <Value value={newValue} className={styles.new} />
         </li>
     );
 }

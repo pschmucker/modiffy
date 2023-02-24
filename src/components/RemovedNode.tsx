@@ -1,6 +1,7 @@
 import { FC } from "react"
 import { Property } from "./Property";
 import { Value } from "./Value";
+import * as styles from "./Diff.module.scss";
 
 type RemovedNodeProps = {
     property: string,
@@ -13,9 +14,9 @@ export const RemovedNode: FC<RemovedNodeProps> = ({ property, value, propertySty
     const propertySpan = <Property name={property} />;
 
     return (
-        <li className="removed leaf node">
+        <li className={`${styles.removed} ${styles.leaf} ${styles.node}`}>
             { propertyStyle === 'prefix' && propertySpan }
-            <span className="type" style={{ backgroundColor: 'red' }}>removed</span>
+            <span className={styles.type}>removed</span>
             { propertyStyle === 'default' && propertySpan }
             <Value value={value} />
         </li>

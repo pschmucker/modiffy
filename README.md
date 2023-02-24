@@ -9,45 +9,108 @@
 
 Provides a React component to easily view all meaningful differences between 2 objects.
 
-[**Demo**](https://pschmucker.github.io/modiffy/)
+[**Live demo**](https://pschmucker.github.io/modiffy/)
 
+<br>
 
 ## Installation
+
 ```bash
 npm install modiffy
 ```
 
+<br>
 
 ## Usage
+
 ```js
 <Diff oldValue={{ name: 'diff' }} newValue={{ name: 'modiffy' }} expanded={true} />
 ```
 
-See [example project](https://github.com/pschmucker/modiffy/tree/main/example)
+<br>
 
+## Configuration
+
+### Formatters
+
+When a changed node is not a simple value (like a number, string or boolean), the library displays an "object" badge.
+You can display something more meaningful by implementing your own formatter:
+
+```js
+import { Formatter } from 'modiffy'
+
+export class PersonFormatter implements Formatter {
+
+    matches(value: any): boolean {
+        return Object.hasOwn(value ?? {}, 'firstName');
+    }
+    
+    format(value: any): JSX.Element {
+        return value.firstName;
+    }
+}
+```
+
+```js
+import { configuration } from 'modiffy';
+import { PersonFormatter } from "./PersonFormatter";
+
+configuration.addFormatter(new PersonFormatter());
+```
+
+```js
+<Diff expanded={true}
+    oldValue={ [] }
+    newValue={ [{ firstName: 'Phil', age: 35 }] }
+/>
+```
+
+<br>
+
+### Ignored properties
+
+Some properties may be irrelevant like technical identifiers for endusers. 
+You can ignore such properties with the **ignoredProperties** option:
+
+```js
+import { configuration } from 'modiffy';
+
+configuration.applyOptions({
+    ignoredProperties: [
+        'id'
+    ]
+});
+```
+
+<br>
+
+## Supported features
+
+- [x] Custom formatters
+- [x] Ignored properties
+- [ ] i18n
+- [ ] Object preview
+- [ ] Expand / collapse all
+- [ ] Customizable theme
+- [ ] Empty values
+- [ ] Date formatting
+- [ ] Agnostic Web component
+
+<br>
 
 ## Local development
-- npm install
-- cd example && npm install
-- cd node_modules/react && npm link
-- cd ../../.. && npm link react
-- Do modifications on lib
-- npm run link
-- cd example && npm link modiffy
-- npm start
 
+```bash
+npm install
+cd example && npm install
+cd node_modules/react && npm link
+cd ../../.. && npm link react
+npm run link
+cd example && npm link modiffy
+npm start
+```
 
-## Upcoming features
-- Custom formatters
-- Ignore properties
-- Object preview
-- i18n
-- Expand / collapse all
-- Customizable theme
-- Empty values
-- Date formatting
-- Agnostic Web component
-
+<br>
 
 ## Credits
 

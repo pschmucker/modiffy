@@ -1,4 +1,5 @@
 import { FC } from "react"
+import * as styles from "./Diff.module.scss"
 import { Property } from "./Property"
 import { Value } from "./Value"
 
@@ -13,11 +14,11 @@ export const AddedNode: FC<AddedNodeProps> = ({ property, value, propertyStyle =
     const propertySpan = <Property name={property} />;
 
     return (
-        <li className="added leaf node">
+        <li className={`${styles.added} ${styles.leaf} ${styles.node}`}>
             { propertyStyle === 'prefix' && propertySpan }
-            <span className="type" style={{ backgroundColor: 'green' }}>added</span>
+            <span className={styles.type}>added</span>
             { propertyStyle === 'default' && propertySpan }
-            <Value value={value} className="new" />
+            <Value value={value} className={`${styles.new}`} />
         </li>
     );
 }

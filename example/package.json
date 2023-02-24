@@ -1,10 +1,11 @@
 {
     "name": "modiffy-examples",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "private": true,
     "scripts": {
-        "start": "parcel serve --no-cache src/index.html",
-        "build": "parcel build src/index.html --dist-dir ../docs --public-url ."
+        "build": "parcel build src/index.html --dist-dir ../docs --public-url .",
+        "clean": "rm -rf ../docs",
+        "start": "parcel serve --no-cache src/index.html"
     },
     "devDependencies": {
         "@types/react": "^18.0.27",
@@ -12,6 +13,7 @@
         "assert": "^2.0.0",
         "buffer": "^5.7.1",
         "events": "^3.3.0",
+        "os-browserify": "^0.3.0",
         "parcel": "^2.8.3",
         "process": "^0.11.10",
         "react": "^18.2.0",
@@ -19,7 +21,7 @@
     },
     "dependencies": {
         "i18next": "^22.4.9",
-        "modiffy": "^1.0.0",
+        "modiffy": "^1.2.0",
         "react-i18next": "^12.1.5"
     }
 }
