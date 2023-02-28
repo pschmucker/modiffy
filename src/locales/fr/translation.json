@@ -1,0 +1,18 @@
+{
+    "type": {
+        "new": "Nouveau",
+        "unchanged": "Inchangé",
+        "added": "Ajouté",
+        "removed": "Retiré",
+        "updated": "Modifié"
+    },
+    "value": {
+        "false": "Non",
+        "true": "Oui"
+    },
+    "placeholder": {
+        "empty": "Vide",
+        "truncated": "Tronqué",
+        "object": "Objet"
+    }
+}

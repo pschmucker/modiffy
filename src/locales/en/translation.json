@@ -1,0 +1,18 @@
+{
+    "type": {
+        "new": "New",
+        "unchanged": "Unchanged",
+        "added": "Added",
+        "removed": "Removed",
+        "updated": "Updated"
+    },
+    "value": {
+        "false": "No",
+        "true": "Yes"
+    },
+    "placeholder": {
+        "empty": "Empty",
+        "truncated": "Truncated",
+        "object": "Object"
+    }
+}

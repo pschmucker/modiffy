@@ -1,6 +1,8 @@
 import { diff } from "json-diff"
 import { FC } from "react"
+import { I18nextProvider } from "react-i18next"
 import { configOptions } from "../config/Options"
+import i18n from "../i18n"
 import { AddedNode } from "./AddedNode"
 import { ArrayNode } from "./ArrayNode"
 import * as styles from "./Diff.module.scss"
@@ -77,7 +79,7 @@ export const Diff: FC<DiffProps> = ({ oldValue, newValue, expanded = true, debug
 
     const jsonDiff = diff(oldValue, newValue);
 
-    return (<>
+    return <I18nextProvider i18n={i18n}>
         <div className={`modiffy ${styles.diff}`}>
             <ul>{ displayDiffNode('root', jsonDiff, 0) }</ul>
         </div>
@@ -85,5 +87,5 @@ export const Diff: FC<DiffProps> = ({ oldValue, newValue, expanded = true, debug
         { debug === 'full' && <pre className="old">{ JSON.stringify(oldValue, undefined, 2) }</pre> }
         { debug === 'full' && <pre className="new">{ JSON.stringify(newValue, undefined, 2) }</pre> }
         { debug !== 'disabled' && <pre className="diff">{ JSON.stringify(jsonDiff, undefined, 2) }</pre> }
-    </>);
+    </I18nextProvider>;
 }
