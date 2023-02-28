@@ -10,7 +10,7 @@ export class ObjectFormatter implements Formatter {
     
     format(value: any): JSX.Element {
         const displayableProperty = value.name || value.label || value.code || value.description || value.value || value.content;
-        const preview = displayableProperty ? `${displayableProperty}`.substring(0, 80) : displayableProperty;
+        const preview = displayableProperty ? `${displayableProperty}`.substring(0, 80) : `${displayableProperty}`;
     
         if (!displayableProperty) {
             return <span title={JSON.stringify(value, undefined, 2)} className={`${styles.object} ${styles.placeholder}`}>
@@ -19,7 +19,7 @@ export class ObjectFormatter implements Formatter {
         }
     
         return <span className={styles.content}>
-            { JSON.stringify(preview) }
+            "{ preview }
     
             { displayableProperty.length > 80 && <>
                 <span>...&nbsp;</span>
