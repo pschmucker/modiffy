@@ -115,27 +115,15 @@
         
             &.empty {
                 background-color: #ccc;
-        
-                &::after {
-                    content: 'empty';
-                }
             }
             
             &.truncated {
                 background-color: #ccc;
-        
-                &::after {
-                    content: 'truncated';
-                }
             }
             
             &.object {
                 background-color: #222;
                 cursor: help;
-        
-                &::after {
-                    content: 'object';
-                }
             }
         }
     }

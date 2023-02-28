@@ -1,5 +1,6 @@
 import { Formatter } from "./Formatter";
 import * as styles from "../components/Diff.module.scss";
+import { Trans } from "react-i18next";
 
 export class ObjectFormatter implements Formatter {
 
@@ -12,7 +13,9 @@ export class ObjectFormatter implements Formatter {
         const preview = displayableProperty ? `${displayableProperty}`.substring(0, 80) : displayableProperty;
     
         if (!displayableProperty) {
-            return <span title={JSON.stringify(value, undefined, 2)} className={`${styles.object} ${styles.placeholder}`} />;
+            return <span title={JSON.stringify(value, undefined, 2)} className={`${styles.object} ${styles.placeholder}`}>
+                <Trans>placeholder.object</Trans>
+            </span>;
         }
     
         return <span className={styles.content}>
@@ -20,8 +23,10 @@ export class ObjectFormatter implements Formatter {
     
             { displayableProperty.length > 80 && <>
                 <span>...&nbsp;</span>
-                <span className={`${styles.truncated} ${styles.placeholder}`} />
-            </>}
+                <span className={`${styles.truncated} ${styles.placeholder}`}>
+                    <Trans>placeholder.truncated</Trans>
+                </span>
+            </>}"
         </span>;
     }
 }

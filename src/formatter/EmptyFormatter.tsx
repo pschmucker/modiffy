@@ -1,3 +1,4 @@
+import { Trans } from "react-i18next";
 import * as styles from "../components/Diff.module.scss";
 import { Formatter } from "./Formatter";
 
@@ -8,6 +9,8 @@ export class EmptyFormatter implements Formatter {
     }
     
     format(): JSX.Element {
-        return <span className={`${styles.empty} ${styles.placeholder}`} />;
+        return <span className={`${styles.empty} ${styles.placeholder}`}>
+            <Trans>placeholder.empty</Trans>
+        </span>;
     }
 }
