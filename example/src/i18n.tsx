@@ -23,7 +23,37 @@ i18n
             en: {
                 translation: {
                     "title": {
-                        "newObject": "New object"
+                        "newObject": "New object",
+                        "equalObjects": "Equal objects",
+                        "addedProperty": "Added property",
+                        "removedProperty": "Removed property",
+                        "updatedProperty": "Updated property",
+                        "arrayModifications": "Array modifications",
+                        "complexObjectWithNestedModifications": "Complex object with nested modifications",
+                    }
+                },
+                modiffy: {
+                    "property": {
+                        "root": "Root"
+                    }
+                }
+            },
+            fr: {
+                modiffy: {
+                    "property": {
+                        "age": "âge",
+                        "enabled": "actif",
+                        "movies": "films",
+                        "title": "titre",
+                        "releaseDate": "date de sortie",
+                        "soundMix": "mixage audio",
+                        "writers": "scénaristes",
+                        "details": "détails",
+                        "director": "réalisateur",
+                        "name": "nom",
+                        "synopsis": "synopsis",
+                        "actors": "acteurs",
+                        "reviews": "avis",
                     }
                 }
             }
