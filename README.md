@@ -33,9 +33,9 @@ npm install modiffy
 
 | | Feature | Since |
 | --- | --- | --- |
-| &check; | [Custom formatters](#markdown-header-formatters) | [![Formatter][formatter-version]][formatter-url] |
-| &check; | [Ignored properties](#markdown-header-ignored-properties) | [![Ignored properties][ignored-properties-version]][ignored-properties-url] |
-| &check; | [i18n](#markdown-header-i18n) | [![i18n][i18n-version]][i18n-url] |
+| &check; | [Custom formatters](#formatters) | [![Formatter][formatter-version]][formatter-url] |
+| &check; | [Ignored properties](#ignored-properties) | [![Ignored properties][ignored-properties-version]][ignored-properties-url] |
+| &check; | [i18n](#i18n) | [![i18n][i18n-version]][i18n-url] |
 | | Object preview |
 | | Expand / collapse all |
 | | Customizable theme |
