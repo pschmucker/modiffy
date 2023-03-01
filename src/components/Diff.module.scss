@@ -1,10 +1,13 @@
 .diff {
     ul {
         margin: 0;
-        padding-inline-start: 30px;
+        padding-inline-start: 1.625rem;
     }
 
     .node {
+        margin: 0.375em 0;
+        line-height: 1em;
+
         &.object,
         &.array {
             position: relative;
@@ -27,7 +30,6 @@
             display: flex;
             align-items: flex-start;
             column-gap: 0.5em;
-            margin: 0.25em 0 0.5em -30px;
         }
 
         > .type {
@@ -60,6 +62,7 @@
         }
 
         > .property {
+            padding: 2px 0px;
             font-style: italic;
             color: grey;
 
@@ -68,7 +71,31 @@
             }
         }
 
+        &.array > ul > .node > .property {
+            display: inline-block;
+            width: 1rem;
+            height: 1rem;
+            border: 1px solid;
+            border-radius: 50%;
+            margin: 0.125em 0;
+            padding: 0;
+            text-align: center;
+            font-size: 0.75em;
+            font-style: normal;
+            flex-shrink: 0;
+
+            &::after {
+                content: '';
+            }
+        }
+
         > .value {
+            padding: 2px 0px;
+
+            > .content {
+                font-size: 0.9375em;
+            }
+            
             &.old > .content {
                 text-decoration: line-through;
             }
@@ -95,8 +122,8 @@
         > .toggle-handler {
             position: absolute;
             display: block;
-            top: -0.125em;
-            left: -30px;
+            top: -0.25em;
+            left: -1.625rem;
             right: 0;
             height: 1.125em;
             margin: 2px 0;
