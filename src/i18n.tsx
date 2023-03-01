@@ -7,7 +7,7 @@ import frenchTranslations from './locales/fr/translation.json';
 const i18n = i18next.createInstance({
     lng: 'en',
     fallbackLng: 'en',
-    debug: true,
+    debug: false,
     ns: ['modiffy'],
     defaultNS: 'modiffy',
     react: { useSuspense: false },
