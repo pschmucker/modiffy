@@ -19,14 +19,14 @@ export class ObjectFormatter implements Formatter {
         }
     
         return <span className={styles.content}>
-            "{ preview }
+            &quot;{ preview }
     
             { displayableProperty.length > 80 && <>
                 <span>...&nbsp;</span>
                 <span className={`${styles.truncated} ${styles.placeholder}`}>
                     <Trans>placeholder.truncated</Trans>
                 </span>
-            </>}"
+            </>}&quot;
         </span>;
     }
 }
