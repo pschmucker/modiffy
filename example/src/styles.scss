@@ -7,6 +7,13 @@ body {
     margin: 1em;
 }
 
+h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+}
+
 section {
     display: flex;
     align-items: flex-start;
@@ -19,9 +26,13 @@ section {
 }
 
 pre {
-    overflow: auto;
+    font-family: monospace;
+    overflow-x: auto;
+    overflow-y: hidden;
     order: 1;
-    margin-top: 0;
+    margin: 0 0 1em 0;
+    padding-bottom: 1em;
+    line-height: normal;
 }
 
 pre.diff {

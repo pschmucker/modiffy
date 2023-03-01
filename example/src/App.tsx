@@ -1,7 +1,6 @@
 import { Diff } from 'modiffy'
 import React, { FC } from 'react'
 import { useTranslation } from 'react-i18next';
-import './index.scss'
 
 
 type AppProps = Record<string, never>;
@@ -13,7 +12,7 @@ export const App: FC<AppProps> = () => {
 
     return (<>
         <div>
-            <h2>{ t('title.newObject') }</h2>
+            <h1>{ t('title.newObject') }</h1>
             <section>
                 <Diff expanded={true} debug={debugMode}
                     oldValue={null}
@@ -23,7 +22,7 @@ export const App: FC<AppProps> = () => {
         </div>
         <hr />
         <div>
-            <h2>{ t('title.equalObjects') }</h2>
+            <h1>{ t('title.equalObjects') }</h1>
             <section>
                 <Diff expanded={true} debug={debugMode}
                     oldValue={{ firstName: 'Phil', age: 35 }}
@@ -33,7 +32,7 @@ export const App: FC<AppProps> = () => {
         </div>
         <hr />
         <div>
-            <h2>{ t('title.addedProperty') }</h2>
+            <h1>{ t('title.addedProperty') }</h1>
             <section>
                 <Diff expanded={true} debug={debugMode}
                     oldValue={{ firstName: 'Phil' }}
@@ -43,7 +42,7 @@ export const App: FC<AppProps> = () => {
         </div>
         <hr />
         <div>
-            <h2>{ t('title.removedProperty') }</h2>
+            <h1>{ t('title.removedProperty') }</h1>
             <section>
                 <Diff expanded={true} debug={debugMode}
                     oldValue={{ firstName: 'Phil', age: 35 }}
@@ -53,7 +52,7 @@ export const App: FC<AppProps> = () => {
         </div>
         <hr />
         <div>
-            <h2>{ t('title.updatedProperty') }</h2>
+            <h1>{ t('title.updatedProperty') }</h1>
             <section>
                 <Diff expanded={true} debug={debugMode}
                     oldValue={{ firstName: 'Phil', age: 35, enabled: false }}
@@ -63,7 +62,7 @@ export const App: FC<AppProps> = () => {
         </div>
         <hr />
         <div>
-            <h2>{ t('title.arrayModifications') }</h2>
+            <h1>{ t('title.arrayModifications') }</h1>
             <section>
                 <Diff expanded={true} debug={debugMode}
                     oldValue={{ movies: [ { title: 'Armaggeddon', year: 1998 }, { title: 'Inception', year: 2010 }, { title: 'Interstellar', year: 2014 } ] }}
@@ -73,7 +72,7 @@ export const App: FC<AppProps> = () => {
         </div>
         <hr />
         <div>
-            <h2>{ t('title.complexObjectWithNestedModifications') }</h2>
+            <h1>{ t('title.complexObjectWithNestedModifications') }</h1>
             <section>
                 <Diff expanded={true} debug={debugMode}
                     oldValue={{ title: 'Dune', director: { name: 'Villeneuve' }, synopsis: null, releaseDate: '2021-10-22T00:00:00.000Z', actors: [ 'Timothée Chalamet', 'Rebecca Ferguson', 'Zendaya' ], reviews: [], soundMix: [ 'Auro 11.1', 'Dolby Surround 7.1', 'Dolby Atmos', 'Dolby Digital', 'IMAX 6-Track' ], writers: [ { fullName: 'Jon Spaihts' }, { fullName: 'Denis Villeneuve' }, { fullName: 'Eric Roth' } ] }}
