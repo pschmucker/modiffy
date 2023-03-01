@@ -84,11 +84,76 @@ configuration.applyOptions({
 
 <br>
 
+### i18n
+
+By default, labels in the **&lt;Diff&gt;** component are written in english and properties are not translated.
+If your application uses the [react-i18next](https://github.com/i18next/react-i18next) library, you can adapt the language
+to the endusers and provide custom translations for the properties.
+
+The translation key for your properties should be formatted like this: **property.*&lt;name of your property&gt;***
+
+```js
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
+
+const i18nResources = {
+    en: {
+        translation: {
+            "property": {
+                "age": "age",
+                "firstName": "first name"
+            }
+        }
+    },
+    fr: {
+        translation: {
+            "property": {
+                "age": "âge",
+                "firstName": "prénom"
+            }
+        }
+    }
+}
+
+i18n
+    .use(LanguageDetector)
+    .use(initReactI18next)
+    .init({
+        fallbackLng: 'en',
+        resources: i18nResources,
+        interpolation: {
+            escapeValue: false,
+        }
+    });
+
+export default i18n;
+
+```
+
+```js
+import { configuration } from 'modiffy';
+import i18n from './i18n';
+
+configuration.usei18n(i18n);
+```
+
+If you want to put translations in a dedicated [namespace](https://www.i18next.com/principles/namespaces) to avoid conflicts, you must specify in the configuration which namespace the modiffy library has to use (*translation* will be used if not specified):
+
+```js
+import { configuration } from 'modiffy';
+import i18n from './i18n';
+
+configuration.usei18n(i18n, 'modiffy');
+```
+
+<br>
+
 ## Supported features
 
 - [x] Custom formatters
 - [x] Ignored properties
-- [ ] i18n
+- [x] i18n
 - [ ] Object preview
 - [ ] Expand / collapse all
 - [ ] Customizable theme
