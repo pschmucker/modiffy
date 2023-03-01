@@ -29,6 +29,22 @@ npm install modiffy
 
 <br>
 
+## Supported features
+
+| | Feature | Since |
+| --- | --- | --- |
+| &check; | [Custom formatters](#markdown-header-formatters) | [![Formatter][formatter-version]][formatter-url] |
+| &check; | [Ignored properties](#markdown-header-ignored-properties) | [![Ignored properties][ignored-properties-version]][ignored-properties-url] |
+| &check; | [i18n](#markdown-header-i18n) | [![i18n][i18n-version]][i18n-url] |
+| | Object preview |
+| | Expand / collapse all |
+| | Customizable theme |
+| | Empty values |
+| | Date formatting |
+| | Agnostic Web component |
+
+<br>
+
 ## Configuration
 
 ### Formatters
@@ -87,8 +103,8 @@ configuration.applyOptions({
 ### i18n
 
 By default, labels in the **&lt;Diff&gt;** component are written in english and properties are not translated.
-If your application uses the [react-i18next](https://github.com/i18next/react-i18next) library, you can adapt the language
-to the endusers and provide custom translations for the properties.
+If your application uses the [react-i18next](https://github.com/i18next/react-i18next) library, you can adapt the component's language
+to the endusers and provide your own translations for the properties.
 
 The translation key for your properties should be formatted like this: **property.*&lt;name of your property&gt;***
 
@@ -149,20 +165,6 @@ configuration.usei18n(i18n, 'modiffy');
 
 <br>
 
-## Supported features
-
-- [x] Custom formatters
-- [x] Ignored properties
-- [x] i18n
-- [ ] Object preview
-- [ ] Expand / collapse all
-- [ ] Customizable theme
-- [ ] Empty values
-- [ ] Date formatting
-- [ ] Agnostic Web component
-
-<br>
-
 ## Local development
 
 ```bash
@@ -191,3 +193,9 @@ https://betterprogramming.pub/how-to-create-and-publish-react-typescript-npm-pac
 [github-build]: https://github.com/pschmucker/modiffy/actions/workflows/publish.yml/badge.svg
 [github-build-url]: https://github.com/pschmucker/modiffy/actions/workflows/publish.yml
 [npm-typescript]: https://img.shields.io/npm/types/modiffy
+[formatter-version]: https://img.shields.io/static/v1?label=modiffy&message=v1.1.0&color=blue
+[formatter-url]: https://github.com/pschmucker/modiffy/releases/tag/v1.1.0
+[ignored-properties-version]: https://img.shields.io/static/v1?label=modiffy&message=v1.2.0&color=blue
+[ignored-properties-url]: https://github.com/pschmucker/modiffy/releases/tag/v1.2.0
+[i18n-version]: https://img.shields.io/static/v1?label=modiffy&message=v1.3.0&color=blue
+[i18n-url]: https://github.com/pschmucker/modiffy/releases/tag/v1.3.0
