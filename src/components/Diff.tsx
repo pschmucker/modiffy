@@ -1,5 +1,5 @@
 import { diff } from "json-diff"
-import { FC } from "react"
+import { FC, useState } from "react"
 import { I18nextProvider } from "react-i18next"
 import { configOptions } from "../config/Options"
 import i18n from "../i18n"
@@ -18,7 +18,19 @@ type DiffProps = {
 
 export const Diff: FC<DiffProps> = ({ oldValue, newValue, expanded = true, debug = 'disabled' }) => {
 
-    const displayDiffNode = (propertyName: string, diffNode: any, index: number): JSX.Element => {
+    const [ collapsedNodes, setCollapsedNodes ] = useState<{[key: string]: boolean}>({});
+
+    const isNodeCollapsed = (path: string[]) => collapsedNodes[path.join('.')] ?? !expanded;
+
+    const deepToggle = (path: string, collapsed: boolean, deep: boolean) => {
+        const changedCollapsedNodes = deep
+            ? Object.fromEntries(Object.keys(collapsedNodes).filter(key => key.startsWith(path)).map(key => [key, collapsed ]))
+            : { [path]: collapsed };
+
+        setCollapsedNodes({ ...collapsedNodes, ...changedCollapsedNodes });
+    }
+
+    const displayDiffNode = (propertyName: string, diffNode: any, index: number, nodePath: string[] = []): JSX.Element => {
 
         if (diffNode === undefined) {
             return <Leaf key={index} property={propertyName} propertyStyle="hidden" type="unchanged" className={styles.unchanged} />;
@@ -63,7 +75,7 @@ export const Diff: FC<DiffProps> = ({ oldValue, newValue, expanded = true, debug
 
         if (Array.isArray(diffNode)) {
             return (
-                <Node key={index} property={propertyName} className={styles.array} expanded={expanded}>
+                <Node key={index} property={propertyName} path={nodePath} className={styles.array} expanded={!isNodeCollapsed(nodePath)} onToggle={deepToggle}>
                     { properties.map(([key, value]: [string, any], arrayIndex) => {
                         if (value.length === 1 && value[0] === ' ') {
                             return <Leaf key={arrayIndex} property={`${+key + 1}`} propertyStyle="prefix" type="unchanged" className={styles.unchanged} />;
@@ -86,7 +98,7 @@ export const Diff: FC<DiffProps> = ({ oldValue, newValue, expanded = true, debug
                         }
                         
                         if (value[0] === '~') {
-                            return displayDiffNode(`${+key + 1}`, value[1], arrayIndex);
+                            return displayDiffNode(`${+key + 1}`, value[1], arrayIndex, [...nodePath, key]);
                         }
 
                         return <></>;
@@ -96,8 +108,8 @@ export const Diff: FC<DiffProps> = ({ oldValue, newValue, expanded = true, debug
         }
 
         return (
-            <Node key={index} property={propertyName} className={styles.object} expanded={expanded}>
-                { properties.map(([key, value], propertyIndex) => displayDiffNode(key, value, propertyIndex)) }
+            <Node key={index} property={propertyName} path={nodePath} className={styles.object} expanded={!isNodeCollapsed(nodePath)} onToggle={deepToggle}>
+                { properties.map(([key, value], propertyIndex) => displayDiffNode(key, value, propertyIndex, [...nodePath, key])) }
             </Node>
         );
     }
