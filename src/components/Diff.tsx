@@ -3,14 +3,11 @@ import { FC } from "react"
 import { I18nextProvider } from "react-i18next"
 import { configOptions } from "../config/Options"
 import i18n from "../i18n"
-import { AddedNode } from "./AddedNode"
-import { ArrayNode } from "./ArrayNode"
 import * as styles from "./Diff.module.scss"
-import { NewNode } from "./NewNode"
-import { ObjectNode } from "./ObjectNode"
-import { RemovedNode } from "./RemovedNode"
-import { UnchangedNode } from "./UnchangedNode"
-import { UpdatedNode } from "./UpdatedNode"
+import { Leaf } from "./Leaf"
+import { Node } from "./Node"
+import { Value } from "./Value"
+
 
 type DiffProps = {
     oldValue: any,
@@ -24,56 +21,84 @@ export const Diff: FC<DiffProps> = ({ oldValue, newValue, expanded = true, debug
     const displayDiffNode = (propertyName: string, diffNode: any, index: number): JSX.Element => {
 
         if (diffNode === undefined) {
-            return <UnchangedNode key={index} property={propertyName} propertyStyle="hidden" />;
+            return <Leaf key={index} property={propertyName} propertyStyle="hidden" type="unchanged" className={styles.unchanged} />;
         }
 
         if (propertyName.endsWith('__added')) {
-            return <AddedNode key={index} property={propertyName.replace(/__added$/, '')} value={diffNode} />;
+            return (
+                <Leaf key={index} property={propertyName.replace(/__added$/, '')} type="added" className={styles.added}>
+                    <Value value={diffNode} className={`${styles.added}`} />
+                </Leaf>
+            );
         }
 
         if (propertyName.endsWith('__deleted')) {
-            return <RemovedNode key={index} property={propertyName.replace(/__deleted$/, '')} value={diffNode} />;
+            return (
+                <Leaf key={index} property={propertyName.replace(/__deleted$/, '')} type="removed" className={styles.removed}>
+                    <Value value={diffNode} className={`${styles.removed}`} />
+                </Leaf>
+            );
         }
 
         const properties = Object.entries(diffNode).filter(([key]) => !configOptions.ignoredProperties.includes(key.replace(/__(?:added|deleted)$/, '')));
 
         if (properties.length === 2 && properties.some(([key]) => key === '__old') && properties.some(([key]) => key === '__new')) {
-            return (propertyName === 'root' && diffNode.__old === null)
-                ? <NewNode key={index} value={diffNode.__new} />
-                : <UpdatedNode key={index} property={propertyName} oldValue={diffNode.__old} newValue={diffNode.__new} />
-            ;
+            if (propertyName === 'root' && diffNode.__old === null) {
+                return (
+                    <Leaf key={index} property={'root'} propertyStyle="hidden" type="new" className={styles.new}>
+                        <Value value={diffNode.__new} />
+                    </Leaf>
+                );
+            }
+            else {
+                return (
+                    <Leaf key={index} property={propertyName} type="updated" className={styles.updated}>
+                        <Value value={diffNode.__old} className={styles.old} />
+                        <span style={{ fontSize: '1.1rem' }}>&rarr;</span>
+                        <Value value={diffNode.__new} className={styles.new} />
+                    </Leaf>
+                );
+            }
         }
 
         if (Array.isArray(diffNode)) {
             return (
-                <ArrayNode key={index} property={propertyName} expanded={expanded}>
+                <Node key={index} property={propertyName} className={styles.array} expanded={expanded}>
                     { properties.map(([key, value]: [string, any], arrayIndex) => {
                         if (value.length === 1 && value[0] === ' ') {
-                            return <UnchangedNode key={arrayIndex} property={`${+key + 1}`} propertyStyle="prefix" />;
+                            return <Leaf key={arrayIndex} property={`${+key + 1}`} propertyStyle="prefix" type="unchanged" className={styles.unchanged} />;
                         }
                         
                         if (value[0] === '-') {
-                            return <RemovedNode key={arrayIndex} property={`${+key + 1}`} value={value[1]} propertyStyle="prefix" />;
+                            return (
+                                <Leaf key={arrayIndex} property={`${+key + 1}`} propertyStyle="prefix" type="removed" className={styles.removed}>
+                                    <Value value={value[1]} className={`${styles.removed}`} />
+                                </Leaf>
+                            );
                         }
                         
                         if (value[0] === '+') {
-                            return <AddedNode key={arrayIndex} property={`${+key + 1}`} value={value[1]} propertyStyle="prefix" />;
+                            return (
+                                <Leaf key={arrayIndex} property={`${+key + 1}`} propertyStyle="prefix" type="added" className={styles.added}>
+                                    <Value value={value[1]} className={`${styles.added}`} />
+                                </Leaf>
+                            );
                         }
                         
                         if (value[0] === '~') {
                             return displayDiffNode(`${+key + 1}`, value[1], arrayIndex);
                         }
 
-                        return <span key={arrayIndex}></span>;
+                        return <></>;
                     })}
-                </ArrayNode>
+                </Node>
             );
         }
 
         return (
-            <ObjectNode key={index} property={propertyName} expanded={expanded}>
+            <Node key={index} property={propertyName} className={styles.object} expanded={expanded}>
                 { properties.map(([key, value], propertyIndex) => displayDiffNode(key, value, propertyIndex)) }
-            </ObjectNode>
+            </Node>
         );
     }
 
