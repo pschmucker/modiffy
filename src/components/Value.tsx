@@ -2,6 +2,7 @@ import { FC } from "react"
 import { ArrayFormatter, BooleanFormatter, DateFormatter, DefaultFormatter, EmptyFormatter, Formatter, formatterRegistry, ObjectFormatter } from "../formatter"
 import * as styles from "./Diff.module.scss"
 
+
 type ValueProps = {
     value: any,
     className?: string

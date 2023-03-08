@@ -1,26 +1,19 @@
-import { FC } from "react"
-import { Property } from "./Property";
-import { Value } from "./Value";
+import { FC } from "react";
 import * as styles from "./Diff.module.scss";
-import { useTranslation } from "react-i18next";
+import { Leaf } from "./Leaf";
+import { Value } from "./Value";
+
 
 type RemovedNodeProps = {
     property: string,
-    value: any,
-    propertyStyle?: 'default' | 'hidden' | 'prefix'
+    value: any
 }
 
-export const RemovedNode: FC<RemovedNodeProps> = ({ property, value, propertyStyle = 'default' }) => {
-    const { t } = useTranslation();
-    
-    const propertySpan = <Property name={property} />;
+export const RemovedNode: FC<RemovedNodeProps> = ({ property, value }) => {
 
     return (
-        <li className={`${styles.removed} ${styles.leaf} ${styles.node}`}>
-            { propertyStyle === 'prefix' && propertySpan }
-            <span className={styles.type}>{ t('type.removed') }</span>
-            { propertyStyle === 'default' && propertySpan }
-            <Value value={value} />
-        </li>
+        <Leaf property={property} type="removed" className={styles.removed}>
+            <Value value={value} className={styles.removed} />
+        </Leaf>
     );
 }

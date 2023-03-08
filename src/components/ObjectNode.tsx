@@ -1,7 +1,7 @@
-import { FC, MouseEvent, useState } from "react";
+import { FC } from "react";
 import * as styles from "./Diff.module.scss";
-import { Property } from "./Property";
-import { UnchangedNode } from "./UnchangedNode";
+import { Node } from "./Node";
+
 
 type ObjectNodeProps = {
     property: string,
@@ -10,22 +10,10 @@ type ObjectNodeProps = {
 }
 
 export const ObjectNode: FC<ObjectNodeProps> = ({ property, children, expanded = false }) => {
-    const [ collapsed, setCollapsed ] = useState(!expanded);
-
-    const toggleCollapsedState = (event: MouseEvent): void => {
-        event.stopPropagation();
-        setCollapsed(!collapsed);
-    }
-
-    if (!children.length) {
-        return <UnchangedNode property={property} propertyStyle="prefix" />
-    }
 
     return (
-        <li className={`${styles.object} ${styles.node} ${collapsed ? styles.collapsed : ''}`}>
-            <div className={`${styles['toggle-handler']}`} onClick={ toggleCollapsedState } />
-            <Property name={ property } />
+        <Node property={property} className={styles.object} expanded={expanded}>
             <ul>{ children }</ul>
-        </li>
+        </Node>
     );
 }
