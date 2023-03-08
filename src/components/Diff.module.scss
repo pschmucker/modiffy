@@ -1,7 +1,7 @@
 .diff {
     ul {
         margin: 0;
-        padding-inline-start: 1.625rem;
+        padding-inline-start: calc(0.75 * 1.25em + 0.5em + 2px);
     }
 
     .node {
@@ -36,9 +36,10 @@
             text-transform: uppercase;
             color: white;
             font-size: 0.75em;
-            font-weight: 600;
+            font-weight: bold;
             padding: 2px 4px;
             border-radius: 3px;
+            transform: translateY(-2px);
         }
 
         &.removed > .type {
@@ -62,7 +63,6 @@
         }
 
         > .property {
-            padding: 2px 0px;
             font-style: italic;
             color: grey;
 
@@ -73,12 +73,12 @@
 
         &.array > ul > .node > .property {
             display: inline-block;
-            width: 1rem;
-            height: 1rem;
+            line-height: 1em;
+            width: 1em;
+            height: 1em;
+            padding: 0.125em;
             border: 1px solid;
             border-radius: 50%;
-            margin: 0.125em 0;
-            padding: 0;
             text-align: center;
             font-size: 0.75em;
             font-style: normal;
@@ -90,8 +90,6 @@
         }
 
         > .value {
-            padding: 2px 0px;
-
             > .content {
                 font-size: 0.9375em;
             }
@@ -123,10 +121,11 @@
             position: absolute;
             display: block;
             top: -0.25em;
-            left: -1.625rem;
+            left: calc(0.75 * -1.25em - 0.5em - 2px);
             right: 0;
             height: 1.125em;
-            margin: 2px 0;
+            margin: 0.125em 0;
+            padding: 0.125em 0;
             border-radius: 2px;
             cursor: pointer;
         }
