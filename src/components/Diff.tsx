@@ -18,8 +18,24 @@ type DiffProps = {
 
 export const Diff: FC<DiffProps> = ({ oldValue, newValue, expanded = true, debug = 'disabled' }) => {
 
-    const [ collapsedNodes, setCollapsedNodes ] = useState<{[key: string]: boolean}>({});
+    const jsonDiff = diff(oldValue, newValue);
 
+    const [ collapsedNodes, setCollapsedNodes ] = useState<{[key: string]: boolean}>(() => {
+        const flatten = (obj: any, path: string = ''): any => {
+            if (!(obj instanceof Object)) {
+                return { [path.replace(/\.$/g, '')]: !expanded };
+            }
+        
+            return Object.keys(obj).reduce((target: any, key: string) => ({
+                ...target,
+                ...flatten(!expanded, path + key + '.'),
+                ...flatten(obj[key], path + key + '.')
+            }), { '': !expanded });
+        }
+
+        return flatten(jsonDiff);
+    });
+    
     const isNodeCollapsed = (path: string[]) => collapsedNodes[path.join('.')] ?? !expanded;
 
     const deepToggle = (path: string, collapsed: boolean, deep: boolean) => {
@@ -113,8 +129,6 @@ export const Diff: FC<DiffProps> = ({ oldValue, newValue, expanded = true, debug
             </Node>
         );
     }
-
-    const jsonDiff = diff(oldValue, newValue);
 
     return <I18nextProvider i18n={i18n}>
         <div className={`modiffy ${styles.diff}`}>
