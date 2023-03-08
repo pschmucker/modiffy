@@ -41,14 +41,19 @@ i18n
             fr: {
                 modiffy: {
                     "property": {
+                        "firstName": "prénom",
                         "age": "âge",
                         "enabled": "actif",
                         "movies": "films",
                         "title": "titre",
+                        "year": "année",
                         "releaseDate": "date de sortie",
                         "soundMix": "mixage audio",
                         "writers": "scénaristes",
                         "details": "détails",
+                        "quotes": "citations",
+                        "character": "personnage",
+                        "content": "texte",
                         "director": "réalisateur",
                         "name": "nom",
                         "synopsis": "synopsis",
