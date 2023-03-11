@@ -13,7 +13,7 @@ type NodeProps = {
     children?: JSX.Element | JSX.Element[]
 }
 
-export const Node: FC<NodeProps> = ({ property, path, className = '', expanded = true, onToggle = () => {}, children }) => {
+export const Node: FC<NodeProps> = ({ property, path, className = '', expanded = true, onToggle, children }) => {
 
     const { t } = useTranslation();
 
@@ -26,7 +26,10 @@ export const Node: FC<NodeProps> = ({ property, path, className = '', expanded =
 
     const toggleCollapsedState = (event: MouseEvent): void => {
         event.stopPropagation();
-        onToggle(path.join('.'), !collapsed, event.altKey);
+
+        if (typeof onToggle === 'function') {
+            onToggle(path.join('.'), !collapsed, event.altKey);
+        }
     }
 
     const handleHover = (hover: boolean) => (event: MouseEvent) => {

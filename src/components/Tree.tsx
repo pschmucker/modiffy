@@ -13,7 +13,7 @@ type TreeProps = {
 export const Tree: FC<TreeProps> = ({ object, expanded = true, children }) => {
 
     const [ collapsedNodes, setCollapsedNodes ] = useState<{[key: string]: boolean}>(() => {
-        const flatten = (object: any, path: string = ''): any => {
+        const flatten = (object: any, path = ''): any => {
             if (!(object instanceof Object)) {
                 return { [path.replace(/\.$/, '')]: !expanded };
             }
