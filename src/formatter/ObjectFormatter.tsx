@@ -2,6 +2,7 @@ import { Trans } from "react-i18next";
 import * as styles from "../components/Diff.module.scss";
 import { Leaf } from "../components/Leaf";
 import { Node } from "../components/Node";
+import { Tree } from "../components/Tree";
 import { Value } from "../components/Value";
 import { Formatter } from "./Formatter";
 
@@ -22,7 +23,28 @@ export class ObjectFormatter implements Formatter {
                     <Trans>placeholder.object</Trans>
                 </span>
                 <div className={styles.preview}>
-                    <ul>{ Object.entries(value).map(([p, v], i) => this.buildTreeNode(p, v, i)) }</ul>
+                    <Tree object={value}>
+                        {(isCollapsed, toggle) => {
+                            const buildTreeNode = (property: string, value: any, index: number, nodePath: string[] = []): JSX.Element => {
+
+                                if (typeof value !== 'object') {
+                                    return (
+                                        <Leaf key={index} property={property}>
+                                            <Value value={value} />
+                                        </Leaf>
+                                    );
+                                }
+                            
+                                return (
+                                    <Node key={index} property={property} path={nodePath} className={Array.isArray(value) ? styles.array : styles.object} expanded={!isCollapsed(nodePath)} onToggle={toggle}>
+                                        { Object.entries(value).map(([p, v], i) => buildTreeNode(p, v, i, [...nodePath, p])) }
+                                    </Node>
+                                );
+                            }
+
+                            return <ul>{ Object.entries(value).map(([p, v], i) => buildTreeNode(p, v, i, [p])) }</ul>;
+                        }}
+                    </Tree>
                 </div>
             </>;
         }
@@ -37,22 +59,5 @@ export class ObjectFormatter implements Formatter {
                 </span>
             </>}&quot;
         </span>;
-    }
-
-    private buildTreeNode(property: string, value: any, index: number): JSX.Element {
-
-        if (typeof value !== 'object') {
-            return (
-                <Leaf key={index} property={property}>
-                    <Value value={value} />
-                </Leaf>
-            );
-        }
-    
-        return (
-            <Node key={index} property={property} className={Array.isArray(value) ? styles.array : styles.object}>
-                { Object.entries(value).map(([p, v], i) => this.buildTreeNode(p, v, i)) }
-            </Node>
-        );
     }
 }
