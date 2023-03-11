@@ -31,12 +31,12 @@ npm install modiffy
 
 ## Supported features
 
-| | Feature | Since |
+| | Features | Since |
 | --- | --- | --- |
 | &check; | [Custom formatters](#formatters) | [![Formatter][formatter-version]][formatter-url] |
 | &check; | [Ignored properties](#ignored-properties) | [![Ignored properties][ignored-properties-version]][ignored-properties-url] |
 | &check; | [i18n](#i18n) | [![i18n][i18n-version]][i18n-url] |
-| | Object preview |
+| &check;<br>&check; | Object preview<br>Deep toggle | [![Object preview][preview-deep-toggle-version]][preview-deep-toggle-url] |
 | | Expand / collapse all |
 | | Customizable theme |
 | | Empty values |
@@ -165,20 +165,6 @@ configuration.usei18n(i18n, 'modiffy');
 
 <br>
 
-## Local development
-
-```bash
-npm install
-cd example && npm install
-cd node_modules/react && npm link
-cd ../../.. && npm link react
-npm run link
-cd example && npm link modiffy
-npm start
-```
-
-<br>
-
 ## Credits
 
 Built by following this article:
@@ -199,3 +185,5 @@ https://betterprogramming.pub/how-to-create-and-publish-react-typescript-npm-pac
 [ignored-properties-url]: https://github.com/pschmucker/modiffy/releases/tag/v1.2.0
 [i18n-version]: https://img.shields.io/static/v1?label=modiffy&message=v1.3.0&color=blue
 [i18n-url]: https://github.com/pschmucker/modiffy/releases/tag/v1.3.0
+[preview-deep-toggle-version]: https://img.shields.io/static/v1?label=modiffy&message=v1.4.0&color=blue
+[preview-deep-toggle-url]: https://github.com/pschmucker/modiffy/releases/tag/v1.4.0
