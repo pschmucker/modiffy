@@ -161,6 +161,14 @@
             padding: 0.125em 0;
             border-radius: 2px;
             cursor: pointer;
+
+            &:hover::after {
+                content: attr(data-hint);
+                position: absolute;
+                right: 0;
+                font-size: 0.65em;
+                color: #888;
+            }
         }
 
         .placeholder {

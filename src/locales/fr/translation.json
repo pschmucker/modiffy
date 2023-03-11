@@ -14,5 +14,9 @@
         "empty": "Vide",
         "truncated": "Tronqué",
         "object": "Objet"
+    },
+    "label": {
+        "collapseAll": "Alt + clic pour tout replier",
+        "expandAll": "Alt + clic pour tout déplier"
     }
 }

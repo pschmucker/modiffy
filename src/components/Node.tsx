@@ -1,4 +1,5 @@
 import { FC, MouseEvent, useEffect, useState } from "react"
+import { useTranslation } from "react-i18next"
 import * as styles from "./Diff.module.scss"
 import { Property } from "./Property"
 
@@ -13,6 +14,8 @@ type NodeProps = {
 }
 
 export const Node: FC<NodeProps> = ({ property, path, className = '', expanded = true, onToggle = () => {}, children }) => {
+
+    const { t } = useTranslation();
 
     const [ collapsed, setCollapsed ] = useState(!expanded);
     const [ hover, setHover ] = useState(false);
@@ -33,7 +36,7 @@ export const Node: FC<NodeProps> = ({ property, path, className = '', expanded =
 
     return (
         <li className={`${styles.node} ${collapsed ? styles.collapsed : ''} ${hover ? styles.hover : ''} ${className}`} onMouseOver={handleHover(true)} onMouseOut={handleHover(false)}>
-            <div className={`${styles['toggle-handler']}`} onClick={toggleCollapsedState} />
+            <div className={`${styles['toggle-handler']}`} onClick={toggleCollapsedState} data-hint={ t(`label.${collapsed ? 'expand' : 'collapse'}All`) } />
             <Property name={property} />
             <ul>{ children }</ul>
         </li>

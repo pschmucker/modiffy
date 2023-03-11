@@ -14,5 +14,9 @@
         "empty": "Empty",
         "truncated": "Truncated",
         "object": "Object"
+    },
+    "label": {
+        "collapseAll": "Alt + click to collapse all",
+        "expandAll": "Alt + click to expand all"
     }
 }
