@@ -50,6 +50,7 @@ i18n
                         "releaseDate": "date de sortie",
                         "soundMix": "mixage audio",
                         "writers": "scénaristes",
+                        "fullName": "nom",
                         "details": "détails",
                         "quotes": "citations",
                         "character": "personnage",
