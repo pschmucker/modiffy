@@ -2,11 +2,29 @@
     ul {
         margin: 0;
         padding-inline-start: calc(0.75 * 1.25em + 0.5em + 2px);
+        position: relative;
+
+        ul {
+            margin-top: 0.25em;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0.1875em;
+                bottom: 1em;
+                left: 0;
+            }
+        }
     }
 
     .node {
-        margin: 0.375em 0;
+        padding: 0.1875em 0;
         line-height: 1em;
+
+        &.hover > ul::before {
+            border-left: 1px solid #ddd;
+            z-index: 1;
+        }
 
         &.object,
         &.array {
@@ -30,6 +48,21 @@
             display: flex;
             align-items: flex-start;
             column-gap: 0.5em;
+            
+            &::before {
+                content: '';
+                position: absolute;
+                display: block;
+                width: 1em;
+                height: 0.5em;
+                left: 0;
+                color: #ddd;
+            }
+            
+            &:hover::before {
+                border-left: 1px solid;
+                border-bottom: 1px solid;
+            }
         }
 
         > .type {

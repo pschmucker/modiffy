@@ -15,6 +15,7 @@ type NodeProps = {
 export const Node: FC<NodeProps> = ({ property, path, className = '', expanded = true, onToggle = () => {}, children }) => {
 
     const [ collapsed, setCollapsed ] = useState(!expanded);
+    const [ hover, setHover ] = useState(false);
 
     useEffect(() => {
         setCollapsed(!expanded);
@@ -25,8 +26,13 @@ export const Node: FC<NodeProps> = ({ property, path, className = '', expanded =
         onToggle(path.join('.'), !collapsed, event.altKey);
     }
 
+    const handleHover = (hover: boolean) => (event: MouseEvent) => {
+        event.stopPropagation();
+        setHover(hover);
+    }
+
     return (
-        <li className={`${styles.node} ${collapsed ? styles.collapsed : ''} ${className}`}>
+        <li className={`${styles.node} ${collapsed ? styles.collapsed : ''} ${hover ? styles.hover : ''} ${className}`} onMouseOver={handleHover(true)} onMouseOut={handleHover(false)}>
             <div className={`${styles['toggle-handler']}`} onClick={toggleCollapsedState} />
             <Property name={property} />
             <ul>{ children }</ul>
