@@ -37,7 +37,6 @@ npm install modiffy
 | &check; | [Ignored properties](#ignored-properties) | [![Ignored properties][ignored-properties-version]][ignored-properties-url] |
 | &check; | [i18n](#i18n) | [![i18n][i18n-version]][i18n-url] |
 | &check;<br>&check; | Object preview<br>Deep toggle | [![Object preview][preview-deep-toggle-version]][preview-deep-toggle-url] |
-| | Expand / collapse all |
 | | Customizable theme |
 | | Empty values |
 | | Date formatting |
