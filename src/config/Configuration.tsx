@@ -22,6 +22,7 @@ class Configuration {
         i18nLib.changeLanguage(i18nApp.language);
 
         i18nApp.on('languageChanged', lang => i18nLib.changeLanguage(lang));
+        return this;
     }
 }
 
