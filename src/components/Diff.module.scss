@@ -1,4 +1,8 @@
 .diff {
+    span {
+        box-sizing: content-box;
+    }
+
     ul {
         margin: 0;
         padding-inline-start: calc(0.75 * 1.25em + 0.5em + 2px);
