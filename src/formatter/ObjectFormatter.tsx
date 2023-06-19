@@ -37,12 +37,12 @@ export class ObjectFormatter implements Formatter {
                             
                                 return (
                                     <Node key={index} property={property} path={nodePath} className={Array.isArray(value) ? styles.array : styles.object} expanded={!isCollapsed(nodePath)} onToggle={toggle}>
-                                        { Object.entries(value).map(([p, v], i) => buildTreeNode(p, v, i, [...nodePath, p])) }
+                                        { Object.entries(value).map(([p, v], i) => buildTreeNode(Array.isArray(value) ? `${+p + 1}` : p, v, i, [...nodePath, p])) }
                                     </Node>
                                 );
                             }
 
-                            return <ul>{ Object.entries(value).map(([p, v], i) => buildTreeNode(p, v, i, [p])) }</ul>;
+                            return <ul>{ Object.entries(value).map(([p, v], i) => buildTreeNode(Array.isArray(value) ? `${+p + 1}` : p, v, i, [p])) }</ul>;
                         }}
                     </Tree>
                 </div>
