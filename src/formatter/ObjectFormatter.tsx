@@ -27,7 +27,7 @@ export class ObjectFormatter implements Formatter {
                         {(isCollapsed, toggle) => {
                             const buildTreeNode = (property: string, value: any, index: number, nodePath: string[] = []): JSX.Element => {
 
-                                if (typeof value !== 'object') {
+                                if (value === null || typeof value !== 'object') {
                                     return (
                                         <Leaf key={index} property={property}>
                                             <Value value={value} />
