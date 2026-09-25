@@ -35,8 +35,7 @@ jobs:
     with:
       # Example of specifying custom arguments
       scan-args: |-
-        -r
-        --skip-git
+        --recursive
         ./
   scan-pr:
     if: ${{ github.event_name == 'pull_request' || github.event_name == 'merge_group' }}
@@ -44,6 +43,11 @@ jobs:
     with:
       # Example of specifying custom arguments
       scan-args: |-
-        -r
-        --skip-git
+        --recursive
         ./
+
+      # Make the workflow fail when a vulnerability is found.
+      fail-on-vuln: true
+
+      # Upload results to GitHub Code Scanning.
+      upload-sarif: true
