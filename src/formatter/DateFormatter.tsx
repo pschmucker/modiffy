@@ -1,5 +1,6 @@
-import * as styles from "../components/Diff.module.scss";
+import styles from "../components/Diff.module.scss";
 import { Formatter } from "./Formatter";
+import { JSX } from 'react';
 
 export class DateFormatter implements Formatter {
 

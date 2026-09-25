@@ -1,5 +1,5 @@
 import { Formatter } from 'modiffy'
-import React from 'react';
+import { JSX } from 'react';
 
 export class ReviewFormatter implements Formatter {
 

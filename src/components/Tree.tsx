@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, JSX, useState } from "react";
 
 
 type TreeProps = {

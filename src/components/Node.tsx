@@ -1,6 +1,6 @@
-import { FC, MouseEvent, useEffect, useState } from "react"
+import { FC, JSX, MouseEvent, useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
-import * as styles from "./Diff.module.scss"
+import styles from "./Diff.module.scss"
 import { Property } from "./Property"
 
 

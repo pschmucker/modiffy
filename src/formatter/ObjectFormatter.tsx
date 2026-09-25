@@ -1,10 +1,11 @@
 import { Trans } from "react-i18next";
-import * as styles from "../components/Diff.module.scss";
+import styles from "../components/Diff.module.scss";
 import { Leaf } from "../components/Leaf";
 import { Node } from "../components/Node";
 import { Tree } from "../components/Tree";
 import { Value } from "../components/Value";
 import { Formatter } from "./Formatter";
+import { JSX } from 'react';
 
 
 export class ObjectFormatter implements Formatter {
