@@ -6,15 +6,13 @@ on:
       - 'v[0-9]+.[0-9]+.[0-9]+'
 
 permissions:
-  contents: write
+  id-token: write
+  contents: read
 
 jobs:
   release-and-publish:
     name: Create release and publish to NPM
     runs-on: ubuntu-latest
-
-    env:
-      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
       # Phase 1: Checkout and setup environment
@@ -27,8 +25,8 @@ jobs:
         uses: actions/setup-node@v7
         with:
           node-version: 24
-          cache: 'npm'
           registry-url: https://registry.npmjs.org/
+          package-manager-cache: false
 
       - name: Install dependencies
         run: npm ci
@@ -69,4 +67,4 @@ jobs:
         run: npm run build
 
       - name: Publish to NPM
-        run: npm publish
+        run: npm stage publish
