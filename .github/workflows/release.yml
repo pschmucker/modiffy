@@ -1,4 +1,4 @@
-name: Create GitHub release
+name: Release and publish
 
 on:
   push:
@@ -9,16 +9,27 @@ permissions:
   contents: write
 
 jobs:
-  release:
-    name: Create release
+  release-and-publish:
+    name: Create release and publish to NPM
     runs-on: ubuntu-latest
 
     steps:
+      # Phase 1: Checkout and setup environment
       - name: Checkout code
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          registry-url: https://registry.npmjs.org/
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      # Phase 2: Generate changelog
       - name: Get version from tag
         id: get_version
         run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
@@ -39,6 +50,7 @@ jobs:
           echo "$CHANGELOG" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
+      # Phase 3: Create GitHub release
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v3
         with:
@@ -47,3 +59,12 @@ jobs:
           body: ${{ steps.changelog.outputs.CHANGELOG }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Phase 4: Build and publish to NPM
+      - name: Build
+        run: yarn build
+
+      - name: Publish to NPM
+        run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
