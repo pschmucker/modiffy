@@ -10,7 +10,7 @@
     },
     "scripts": {
         "build": "parcel build src/index.html",
-        "clean": "rm -rf ../docs",
+        "clean": "rm -rf .parcel-cache dist ../docs",
         "start": "parcel serve --no-cache src/index.html"
     },
     "devDependencies": {
@@ -31,10 +31,5 @@
         "i18next-browser-languagedetector": "8.2.1",
         "modiffy": "1.4.2",
         "react-i18next": "17.0.15"
-    },
-    "@parcel/resolver-default": {
-        "includeNodeModules": {
-            "modiffy": true
-        }
     }
 }
