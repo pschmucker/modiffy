@@ -27,11 +27,11 @@ jobs:
         uses: actions/setup-node@v7
         with:
           node-version: 24
-          cache: 'yarn'
+          cache: 'npm'
           registry-url: https://registry.npmjs.org/
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
 
       # Phase 2: Generate changelog
       - name: Get version from tag
@@ -66,7 +66,7 @@ jobs:
 
       # Phase 4: Build and publish to NPM
       - name: Build
-        run: yarn build
+        run: npm run build
 
       - name: Publish to NPM
-        run: yarn publish
+        run: npm publish
