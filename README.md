@@ -1,9 +1,9 @@
 # Modiffy
 
 [![NPM version][npm-image]][npm-url]
+![Typescript][typescript-version]
+![React][react-version]
 [![Build][github-build]][github-build-url]
-![npm-typescript]
-[![License][github-license]][github-license-url]
 
 **Meaningful objects diff**
 
@@ -172,17 +172,16 @@ https://betterprogramming.pub/how-to-create-and-publish-react-typescript-npm-pac
 
 
 [npm-url]: https://www.npmjs.com/package/modiffy
-[npm-image]: https://img.shields.io/npm/v/modiffy
-[github-license]: https://img.shields.io/github/license/pschmucker/modiffy
-[github-license-url]: https://github.com/pschmucker/modiffy/blob/master/LICENSE
-[github-build]: https://github.com/pschmucker/modiffy/actions/workflows/publish.yml/badge.svg
-[github-build-url]: https://github.com/pschmucker/modiffy/actions/workflows/publish.yml
-[npm-typescript]: https://img.shields.io/npm/types/modiffy
-[formatter-version]: https://img.shields.io/static/v1?label=modiffy&message=v1.1.0&color=blue
+[npm-image]: https://img.shields.io/npm/v/modiffy?label=Release&color=%23008000
+[typescript-version]: https://img.shields.io/github/package-json/dependency-version/pschmucker/modiffy/dev/typescript?filename=package.json&label=Typescript&color=%233178C6
+[react-version]: https://img.shields.io/github/package-json/dependency-version/pschmucker/modiffy/dev/react?filename=package.json&label=React&color=%23087ea4
+[github-build]: https://img.shields.io/github/actions/workflow/status/pschmucker/modiffy/release.yml?logo=github&label=Build&labelColor=%23323940
+[github-build-url]: https://github.com/pschmucker/modiffy/actions/workflows/release.yml
+[formatter-version]: https://img.shields.io/static/v1?label=modiffy&message=v1.1.0&color=%23008000
 [formatter-url]: https://github.com/pschmucker/modiffy/releases/tag/v1.1.0
-[ignored-properties-version]: https://img.shields.io/static/v1?label=modiffy&message=v1.2.0&color=blue
+[ignored-properties-version]: https://img.shields.io/static/v1?label=modiffy&message=v1.2.0&color=%23008000
 [ignored-properties-url]: https://github.com/pschmucker/modiffy/releases/tag/v1.2.0
-[i18n-version]: https://img.shields.io/static/v1?label=modiffy&message=v1.3.0&color=blue
+[i18n-version]: https://img.shields.io/static/v1?label=modiffy&message=v1.3.0&color=%23008000
 [i18n-url]: https://github.com/pschmucker/modiffy/releases/tag/v1.3.0
-[preview-deep-toggle-version]: https://img.shields.io/static/v1?label=modiffy&message=v1.4.0&color=blue
+[preview-deep-toggle-version]: https://img.shields.io/static/v1?label=modiffy&message=v1.4.0&color=%23008000
 [preview-deep-toggle-url]: https://github.com/pschmucker/modiffy/releases/tag/v1.4.0
