@@ -8,21 +8,27 @@
         "start": "parcel serve --no-cache src/index.html"
     },
     "devDependencies": {
-        "@types/react": "^18.0.27",
-        "@types/react-dom": "^18.0.10",
-        "assert": "^2.0.0",
-        "buffer": "^5.7.1",
-        "events": "^3.3.0",
-        "os-browserify": "^0.3.0",
-        "parcel": "^2.8.3",
-        "process": "^0.11.10",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "@types/react": "19.3.0",
+        "@types/react-dom": "19.3.0",
+        "assert": "2.1.0",
+        "buffer": "6.0.3",
+        "events": "3.3.0",
+        "os-browserify": "0.3.0",
+        "parcel": "2.16.4",
+        "process": "0.11.10",
+        "react": "19.3.0",
+        "react-dom": "19.3.0",
+        "util": "0.12.5"
     },
     "dependencies": {
-        "i18next": "^22.4.9",
-        "i18next-browser-languagedetector": "^7.0.1",
-        "modiffy": "^1.4.0",
-        "react-i18next": "^12.1.5"
+        "i18next": "26.4.2",
+        "i18next-browser-languagedetector": "8.2.1",
+        "modiffy": "1.4.1",
+        "react-i18next": "17.0.15"
+    },
+    "@parcel/resolver-default": {
+        "includeNodeModules": {
+            "modiffy": true
+        }
     }
 }
