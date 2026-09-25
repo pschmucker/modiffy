@@ -4,6 +4,7 @@
 ![Typescript][typescript-version]
 ![React][react-version]
 [![Build][github-build]][github-build-url]
+[![OSV][osv-scanner]][osv-scanner-url]
 
 **Meaningful objects diff**
 
@@ -177,6 +178,8 @@ https://betterprogramming.pub/how-to-create-and-publish-react-typescript-npm-pac
 [react-version]: https://img.shields.io/github/package-json/dependency-version/pschmucker/modiffy/dev/react?filename=package.json&label=React&color=%23087ea4
 [github-build]: https://img.shields.io/github/actions/workflow/status/pschmucker/modiffy/release.yml?logo=github&label=Build&labelColor=%23323940
 [github-build-url]: https://github.com/pschmucker/modiffy/actions/workflows/release.yml
+[osv-scanner]: https://img.shields.io/github/actions/workflow/status/pschmucker/modiffy/osv.yml?logo=github&label=OSV&labelColor=%23323940
+[osv-scanner-url]: https://github.com/pschmucker/modiffy/actions/workflows/osv.yml
 [formatter-version]: https://img.shields.io/static/v1?label=modiffy&message=v1.1.0&color=%23008000
 [formatter-url]: https://github.com/pschmucker/modiffy/releases/tag/v1.1.0
 [ignored-properties-version]: https://img.shields.io/static/v1?label=modiffy&message=v1.2.0&color=%23008000
