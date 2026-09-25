@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
-import * as styles from "./Diff.module.scss";
+import styles from "./Diff.module.scss";
 
 type PropertyProps = {
     name: string;

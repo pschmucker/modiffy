@@ -1,4 +1,5 @@
 import { Formatter } from 'modiffy'
+import { JSX } from 'react';
 
 export class PersonFormatter implements Formatter {
 

@@ -1,6 +1,6 @@
-import { FC } from "react";
+import { FC, JSX } from "react";
 import { Property } from "./Property";
-import * as styles from "./Diff.module.scss"
+import styles from "./Diff.module.scss"
 import { useTranslation } from "react-i18next";
 
 

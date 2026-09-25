@@ -10,6 +10,9 @@
   ],
   "compilerOptions": {
     "module": "esnext",
+    "types": [
+      "jest"
+    ],
     "lib": [
       "dom",
       "esnext"
@@ -20,11 +23,13 @@
     "rootDir": ".",
     "outDir": "./dist/esm",
     "strict": true,
+    "ignoreDeprecations": "6.0",
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "skipLibCheck": true,
