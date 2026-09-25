@@ -1,4 +1,4 @@
-/// <reference path="./typings.d.ts" />
+import './typings.d.ts';
 
 import { Diff } from './components/Diff'
 import { configuration } from './config/Configuration'

@@ -9,7 +9,10 @@
     "node_modules"
   ],
   "compilerOptions": {
-    "module": "nodenext",
+    "module": "esnext",
+    "types": [
+      "jest"
+    ],
     "lib": [
       "dom",
       "esnext"
@@ -25,7 +28,8 @@
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "moduleResolution": "nodenext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "skipLibCheck": true,

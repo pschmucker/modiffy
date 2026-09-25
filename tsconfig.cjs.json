@@ -5,7 +5,7 @@
   ],
   "compilerOptions": {
     "rootDir": "./src",
-    "module": "nodenext",
+    "module": "commonjs",
     "outDir": "./dist/cjs"
   }
 }

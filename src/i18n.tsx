@@ -1,10 +1,10 @@
-import i18next from 'i18next';
+import i18next, { i18n as I18nInstance } from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import englishTranslations from './locales/en/translation.json';
 import frenchTranslations from './locales/fr/translation.json';
 
 
-const i18n = i18next.createInstance({
+const i18n: I18nInstance = i18next.createInstance({
     lng: 'en',
     fallbackLng: 'en',
     debug: false,

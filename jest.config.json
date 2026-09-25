@@ -1,6 +1,11 @@
 {
     "transform": {
-        "^.+\\.(t|j)sx?$": "ts-jest"
+        "^.+\\.(t|j)sx?$": ["ts-jest", {
+            "tsconfig": "tsconfig.json",
+            "diagnostics": {
+                "warnOnly": true
+            }
+        }]
     },
     "testRegex": "(/tests/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
     "moduleFileExtensions": [
@@ -14,5 +19,6 @@
     "moduleNameMapper": {
         "\\.(css|sass|scss)$": "identity-obj-proxy"
     },
-    "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": ["jest-canvas-mock"] 
 }

@@ -2,8 +2,14 @@
     "name": "modiffy-examples",
     "version": "1.0.0",
     "private": true,
+    "targets": {
+        "default": {
+            "distDir": "../docs",
+            "publicUrl": "."
+        }
+    },
     "scripts": {
-        "build": "parcel build src/index.html --dist-dir ../docs --public-url .",
+        "build": "parcel build src/index.html",
         "clean": "rm -rf ../docs",
         "start": "parcel serve --no-cache src/index.html"
     },
@@ -23,7 +29,7 @@
     "dependencies": {
         "i18next": "26.4.2",
         "i18next-browser-languagedetector": "8.2.1",
-        "modiffy": "1.4.1",
+        "modiffy": "1.4.2",
         "react-i18next": "17.0.15"
     },
     "@parcel/resolver-default": {

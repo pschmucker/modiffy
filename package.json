@@ -1,6 +1,6 @@
 {
   "name": "modiffy",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Provides a React component to easily view all meaningful differences between 2 objects",
   "source": "src/index.tsx",
   "main": "./dist/cjs/index.js",
@@ -8,7 +8,7 @@
   "types": "./dist/esm/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pschmucker/modiffy.git"
+    "url": "git+https://github.com/pschmucker/modiffy.git"
   },
   "scripts": {
     "build": "rm -rf .parcel-cache dist && parcel build",
@@ -42,6 +42,7 @@
   "author": "Philippe Schmucker",
   "license": "MIT",
   "devDependencies": {
+    "@eslint/compat": "2.1.1",
     "@parcel/packager-ts": "2.16.4",
     "@parcel/transformer-sass": "2.16.4",
     "@parcel/transformer-typescript-types": "2.16.4",
