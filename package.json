@@ -71,6 +71,6 @@
   "dependencies": {
     "i18next": "26.5.12",
     "json-diff": "1.0.6",
-    "react-i18next": "17.1.0"
+    "react-i18next": "17.1.9"
   }
 }
