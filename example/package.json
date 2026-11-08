@@ -30,6 +30,6 @@
         "i18next": "26.7.1",
         "i18next-browser-languagedetector": "8.3.0",
         "modiffy": "1.4.2",
-        "react-i18next": "17.1.12"
+        "react-i18next": "18.0.1"
     }
 }
